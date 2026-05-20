@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class Team10BreedList {
 	@Id
-	private String breed_id;
+	private String breedid;
 	private String breed_name;
 	private String size_id;
 	private String feature;
