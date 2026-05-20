@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TempTeam10petRegisterRepository extends JpaRepository<register,String>{
+public interface Team10petRegisterRepository extends JpaRepository<register,String>{
 	List<register> findAll();
 	
 }

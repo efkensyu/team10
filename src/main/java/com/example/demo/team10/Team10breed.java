@@ -7,10 +7,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "size_tbl")
+@Table(name = "breed_tbl")
 @Data
-public class TempTeam10size {
+public class Team10breed {
 	@Id
+	private String breed_id;
+	private String breed_name;
 	private String size_id;
-	private String size_name;
+	private String feature;
+	private String description;
 }
