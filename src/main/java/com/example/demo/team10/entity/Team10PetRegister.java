@@ -1,4 +1,4 @@
-package com.example.demo.team10;
+package com.example.demo.team10.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Table(name = "register_tbl")
 @Data
-public class TempTeam10petRegister {
+public class Team10PetRegister {
 	@Id
 	private String pet_id;
 	private String pet_name;

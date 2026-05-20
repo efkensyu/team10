@@ -1,4 +1,4 @@
-package com.example.demo.team10;
+package com.example.demo.team10.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Table(name = "breed_tbl")
 @Data
-public class TempTeam10breed {
+public class Team10BreedList {
 	@Id
 	private String breed_id;
 	private String breed_name;
