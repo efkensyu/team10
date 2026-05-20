@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Team10sizeRepository extends JpaRepository<size,String>{
+public interface TempTeam10sizeRepository extends JpaRepository<size,String>{
 	
 }

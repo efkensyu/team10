@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Team10breedRepository extends JpaRepository<breed,String>{
+public interface TempTeam10breedRepository extends JpaRepository<breed,String>{
 	List<breed> findAll();
 	
 	List<breed> findByBreedNameContaining(String breedId);
