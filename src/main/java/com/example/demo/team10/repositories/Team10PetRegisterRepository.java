@@ -7,10 +7,8 @@ import com.example.demo.team10.entity.Team10PetRegister;
 
 @Repository
 public interface Team10PetRegisterRepository extends JpaRepository<Team10PetRegister, Integer>{
-	
 	default void insertTeam10PetRegister(Team10PetRegister pet) {
 		this.save(pet);
 	}
-	
 	//public List<Team10PetRegister> findByPET_NAME(String name);
 }
