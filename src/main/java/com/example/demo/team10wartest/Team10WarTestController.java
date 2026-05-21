@@ -14,19 +14,21 @@ import lombok.RequiredArgsConstructor;
 public class Team10WarTestController {
 	private final Team10SizeRepository sizeRepository;
 
+    @GetMapping("/war-test")
+    public String warTestPage() {
+        return "team10/Team10WarTest";
+    }
+
     @GetMapping("/db-test")
     @ResponseBody
     public String dbTest() {
-
         long count = sizeRepository.count();
-
         return "DB接続OK size_tblの件数：" + count;
     }
 
     @GetMapping("/db-insert-test")
     @ResponseBody
     public String dbInsertTest() {
-
         Team10Size size = new Team10Size();
         size.setSize_id("test");
         size.setSize_name("テストサイズ");
