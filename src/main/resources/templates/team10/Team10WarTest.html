@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
 <title>WAR動作確認</title>
@@ -10,8 +10,8 @@
 	<p>DB接続確認とDB登録確認を行います。</p>
 
 	<ul>
-	    <li><a href="@{/db-test}">DB接続確認</a></li>
-	    <li><a href="@{/db-insert-test}">DB登録確認</a></li>
+	    <li><a th:href="db-test">DB接続確認</a></li>
+	    <li><a th:href="db-insert-test">DB登録確認</a></li>
 	</ul>
 </body>
 </html>
