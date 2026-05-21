@@ -19,5 +19,9 @@ public class Team10Service {
 	public List<Team10BreedList> findAll() {
 	    return breedlistrepository.findAll();
 	}
+	
+	public Team10BreedList getBreedByBreedId(Integer BreedID){
+	    return breedlistrepository.getBreedByBreedId(BreedID);
+	}
 
 }

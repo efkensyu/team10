@@ -1,7 +1,13 @@
 package com.example.demo.team10;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.team10.entity.Team10BreedList;
 
 import lombok.RequiredArgsConstructor;
 
@@ -9,29 +15,43 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor	
 
 public class Team10TopController {
-	//private final Team10Service team10service;
+	private final Team10Service team10service;
 	
 		
-	@GetMapping("/team10/inu")			
+	@GetMapping("/team10/breedlist")			
 	public String index () {					
 		return "team10/Team10Top";		
 	}
 	
-	/*@PostMapping(value="/team10/inu",params="breedlist")
+	//犬種一覧ボタンの処理
+	@PostMapping(value="/team10/breedlist",params="breedlist")
 	public String send1(Model model) {
-	List<Team10BreedList> breeds = Team10Service.findAll();
-	model.addAttribute("breeds", breeds);
-		return "Team10BreedList";
-	}*/
-
-	/*@PostMapping(value="/team10/inu",params="petregister")
-	public String send2(Model model) {
-		return "Team10PetRegister";
+		List<Team10BreedList> breeds = team10service.findAll();
+		model.addAttribute("breeds", breeds);
+		return "team10/Team10BreedList";
 	}
 	
-	@PostMapping(value="/team10/inu",params="petlist")
+	//遷移先からトップに戻るボタンの処理
+	@GetMapping("/team10/top") 
+	public String showTopPage() {
+	    return "team10/Team10Top"; 
+	}
+	
+	
+
+
+	//登録ボタンの処理
+	/*@PostMapping(value="/team10/inu",params="petregister")
+	public String send2(Model model) {
+		return "team10/Team10PetRegister";
+	}*/
+	
+	//ペット一覧ボタンの処理
+	/*@GetMapping(value="/team10/inu",params="petlist")
 	public String send3(Model model) {
-		return "Team10PetList";
+		List<Team10BreedList> breeds = team10service.findAll();
+		model.addAttribute("breeds", breeds);
+		return "team10/Team10PetList";
 	}*/
 		
 	
