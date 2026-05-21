@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>犬種詳細</h1>
+<form method="post" th:action="@{/team10/breedlist/details}" th:each="breed:${breed}">
+	
+	<img th:src="@{/images/{filename}(filename=${breed.breedImage})}" width="100"><br>
+	<span th:text="${breed.breedId}"></span><br>
+	<span th:text="${breed.breedName}"></span><br>
+	<span th:text="${breed.sizeId}"></span><br>
+	<span th:text="${breed.feature}"></span>
+
+</form>
+	 
+<form method="get" th:action="@{/team10/top}">
+	<input type="submit" value="トップへ戻る" />
+</form>	
+ <form method="post" th:action="@{/team10/breedlist}">
+    <input type="hidden" name="breedlist" value="" />
+    <input type="submit" value="犬種一覧へ戻る" />
+</form>
+
+
+</body>
+</html>
