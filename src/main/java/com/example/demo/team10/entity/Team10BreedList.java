@@ -12,11 +12,10 @@ import lombok.Data;
 @Data
 public class Team10BreedList {
 	@Id
-	private String breedid;
-	private String breed_name;
+	private Integer breedId;
+	private String breedName;
 	@Lob
-	private byte[] breed_image;
-	private String size_id;
+	private byte[] breedImage;
+	private Integer sizeId;
 	private String feature;
-	private String description;
 }
