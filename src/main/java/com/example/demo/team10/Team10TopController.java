@@ -36,10 +36,12 @@ public class Team10TopController {
 	public String showTopPage() {
 	    return "team10/Team10Top"; 
 	}
+	/*これを遷移先のHTMLに書くとTOPに戻ってこれる
+	 * <form method="get" th:action="@{/team10/top}">
+		<input type="submit" value="トップへ戻る" />
+	</form>*/
 	
 	
-
-
 	//登録ボタンの処理
 	/*@PostMapping(value="/team10/inu",params="petregister")
 	public String send2(Model model) {
