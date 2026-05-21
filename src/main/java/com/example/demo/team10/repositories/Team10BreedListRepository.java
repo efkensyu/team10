@@ -12,7 +12,7 @@ public interface Team10BreedListRepository extends JpaRepository<Team10BreedList
 
 	List<Team10BreedList> findAll();
 	
-	Team10BreedList getBreedByBreedId(Integer breedId);
+	Team10BreedList getBreedByBreedId(int breedId);
 	
 	//List<Team10BreedList> findBySizeId(String sizeId);
 

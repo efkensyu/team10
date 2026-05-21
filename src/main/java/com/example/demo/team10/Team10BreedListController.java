@@ -17,8 +17,9 @@ public class Team10BreedListController {
     }
 	
 	@PostMapping(value="/team10/breedlist/details",params="breedlistdetails")
-    public String showDetails(@RequestParam("breedId") Integer breedId, Model model) {
-		Team10BreedList targetBreed = team10service.getBreedByBreedId(breedId);
+    public String showDetails(@RequestParam("breedId") int breedId, Model model) {
+		System.out.println(breedId);
+		Team10BreedList targetBreed = team10service.getBreedByBreedId(breedId);	
 		model.addAttribute("breed", targetBreed);
 		return "team10/Team10BreedList_details";
 	}
