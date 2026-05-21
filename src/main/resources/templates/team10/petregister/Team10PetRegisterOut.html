@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ペット登録完了画面</title>
+</head>
+
+<body>
+	<table border="1">
+
+		<tr>
+			<th>ペットID</th>
+			<th>ペット名</th>
+		</tr>
+
+		<th:block th:each="data : ${DataList}">
+			<tr th:object="${data}">
+				<td th:text="*{petId}"></td>
+				<td th:text="*{petName}"></td>
+			</tr>
+		</th:block>
+	</table>
+
+</body>
+
+</html>
