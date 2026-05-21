@@ -11,5 +11,5 @@ public interface Team10BreedListRepository extends JpaRepository<Team10BreedList
 	
 	//List<Team10BreedList> findByBreedNameContaining(String breedId);
 	
-	//List<Team10BreedList> findBySizeId(String sizeId);s
+	//List<Team10BreedList> findBySizeId(String sizeId);
 }
