@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.ofg">
 
 <head>
 	<meta charset="UTF-8">
@@ -10,12 +10,17 @@
 	<table border="1">
 
 		<tr>
+			<th>画像</th>
 			<th>ペットID</th>
 			<th>ペット名</th>
 		</tr>
 
 		<th:block th:each="data : ${DataList}">
 			<tr th:object="${data}">
+				<td>
+					<img th:if="*{petImage}" th:src="@{/team10/petimages/{name}(name=*{petImage})}" width="200" alt="ペットの画像" />
+					<span th:unless="*{petImage}">画像なし</span>
+				</td>
 				<td th:text="*{petId}"></td>
 				<td th:text="*{petName}"></td>
 			</tr>

@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 import lombok.Data;
@@ -13,15 +12,16 @@ import lombok.Data;
 @Table(name = "pets_tbl")
 @Data
 public class Team10PetRegister {
-	@Id
+	
 	//自動連番用
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Integer petId;
 	private String petName;
+	private String petImage;
 //	private String breedId;
-	@Lob
-	private byte[] petImage;
-	private String petPass;
+	
+	//private String petPass;
 //	private String gender;
 //	private Integer birthday;
 //	private String memo;
