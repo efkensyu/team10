@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class Team10BreedList {
 	@Id
-	private Integer breedId;
+	private int breedId;
 	private String breedName;
 	@Lob
 	private byte[] breedImage;

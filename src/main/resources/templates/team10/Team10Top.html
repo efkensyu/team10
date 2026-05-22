@@ -4,22 +4,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10Top.css">
 </head>
 
 <body>
 	<h1>うちの犬見てね！</h1>
-	<p>メニューを選択してください</p><br>
+	<p>メニューを選択してください</p>
+	<br>
+	
+<div class="btn-container">
 	<form method="post" th:action="@{/team10/breedlist}">
-		<input type="submit" name="breedlist" value="犬種一覧" />
+		<input type="submit" name="breedlist" value="犬種一覧" class="kawaii-btn"/>
 	</form>
 	<br>
+	
 	<form method="get" th:action="@{/team10/petregister}">
 		<input type="submit" name="petregister" value="ペット登録" />
 	</form>
 	<br>
 	<form method="get" th:action="@{/team10/petlist}">
 		<input type="submit" name="petlist" value="ペット一覧" />
+
 	</form>
+</div>
 	<br>
 </body>
 

@@ -11,6 +11,12 @@ import com.example.demo.team10.entity.Team10BreedList;
 public interface Team10BreedListRepository extends JpaRepository<Team10BreedList,Integer>{
 
 	List<Team10BreedList> findAll();
+	
+	Team10BreedList getBreedByBreedId(int breedId);
+	
+	//List<Team10BreedList> findBySizeId(String sizeId);
+
 	Team10BreedList getBreedByBreedId(Integer breedId);
+
 }
 	

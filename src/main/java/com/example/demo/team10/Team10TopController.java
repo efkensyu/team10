@@ -18,7 +18,7 @@ public class Team10TopController {
 	private final Team10Service team10service;
 	
 		
-	@GetMapping("/team10/breedlist")			
+	@GetMapping("/team10/top")			
 	public String index () {					
 		return "team10/Team10Top";		
 	}
@@ -32,7 +32,7 @@ public class Team10TopController {
 	}
 	
 	//遷移先からトップに戻るボタンの処理
-	@GetMapping("/team10/top") 
+	@GetMapping("/team10/main") 
 	public String showTopPage() {
 	    return "team10/Team10Top"; 
 	}
@@ -45,7 +45,7 @@ public class Team10TopController {
 //	    return "team10/Team10BreedList_Details"; // 遷移先のテンプレート名
 //	}
 	/*これを遷移先のHTMLに書くとTOPに戻ってこれる
-	 * <form method="get" th:action="@{/team10/top}">
+	 * <form method="get" th:action="@{/team10/main}">
 		<input type="submit" value="トップへ戻る" />
 	</form>*/
 	
@@ -57,8 +57,17 @@ public class Team10TopController {
 	}
 	
 	//ペット一覧ボタンの処理
+
 //	@PostMapping(value="/team10/petlist",params="petlist")
 //	public String send3(Model model) {
 //		return "team10/petlist/Team10PetList";
 //	}
+
+	/*@GetMapping(value="/team10/petlist",params="petlist")
+	public String send3(Model model) {
+		List<Team10BreedList> breeds = team10service.findAll();
+		model.addAttribute("petlist", petlist);
+		return "team10/Team10PetList";
+	}*/			
+
 }
