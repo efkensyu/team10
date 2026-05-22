@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
+
 <head>
-<meta charset="UTF-8">
-<title>ペット登録画面</title>
+	<meta charset="UTF-8">
+	<title>ペット登録画面</title>
 </head>
+
 <body>
-	
-<form method="post" th:action="@{/register}" enctype="multipart/form-data">
-	ペットの名前を入力<input type="text" name="petName" value="ポチ" />
-	<br>
-	ペットの画像を選択<input type="file" name="imageFile" accept="image/*" />
-	<br>
-	<input type="submit" value="送信" />
-	
-	<form method="get" th:action="@{/team10/top}">
-		<input type="submit" value="トップへ戻る" />
+
+	<form method="post" th:action="@{/team10/petregister}" enctype="multipart/form-data">
+		ペットの名前を入力
+		<input type="text" name="petName" value="ポチ" />
+		<br>
+		ペットの画像を選択
+		<input type="file" name="imageFile" accept="image/*" />
+		<br>
+		犬種を選択
+		<select name="breedId">
+			<option value="">犬種を選択してください</option>
+			<option th:each="breed : ${breedList}" 
+			        th:value="${breed.breedId}" 
+			        th:text="${breed.breedName}">
+			</option>
+		</select>
+		<br>
+		性別を入力 <input type="radio" name="gender" value="オス" checked /> オス
+		<input type="radio" name="gender" value="メス" /> メス
+		<br>
+		ペットの誕生日を入力
+		<input type="date" name="birthday" class="form-control-date">
+		<br>
+		memoを入力<br>
+		<textarea name="memo" rows="4" cols="40" placeholder="ペットの特徴やメモを書く"></textarea>
+		<br>
+		
+		<input type="submit" value="送信" />
+
+
+
 	</form>
-</form>	
+	<!--	<form method="get" th:action="@{/team10/top}">-->
+	<!--		<input type="submit" value="トップへ戻る" />-->
 
 </body>
+
 </html>
