@@ -10,7 +10,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.team10.entity.Team10BreedList;
 import com.example.demo.team10.entity.Team10PetRegister;
+import com.example.demo.team10.repositories.Team10BreedListRepository;
 import com.example.demo.team10.repositories.Team10PetRegisterRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,13 +21,28 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Team10PetRegisterService {
 	private final Team10PetRegisterRepository repository;
+	private final Team10BreedListRepository breedRepository;
 
 	public void saveTeam10PetRegister(Team10PetRegister pet) {
 		repository.insertTeam10PetRegister(pet);
 	}
 
 	public List<Team10PetRegister> getAllTeam10PetRegister() {
-		return repository.findAll();
+		// ペット一覧を全件取る
+		List<Team10PetRegister> dataList = repository.findAll();
+
+		// 犬種IDを元に犬種名をセットする
+		for (Team10PetRegister p : dataList) {
+			if (p.getBreedId() != null) {
+				Team10BreedList breed = breedRepository.getBreedByBreedId(p.getBreedId());
+				if (breed != null) {
+					p.setBreedName(breed.getBreedName());
+				}
+			}
+		}
+
+		// 犬種名も詰まった状態のリストを返す
+		return dataList;
 	}
 
 	public String saveImage(MultipartFile imageFile) throws IOException {
