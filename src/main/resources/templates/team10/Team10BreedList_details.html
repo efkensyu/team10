@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>犬種詳細</h1>
-<form method="post" th:action="@{/team10/breedlist/details}" th:each="breed:${breed}">
+<form method="post" th:action="@{/team10/breedlist/details}">
 	
 	<img th:src="@{/images/{filename}(filename=${breed.breedImage})}" width="100"><br>
 	<span th:text="${breed.breedId}"></span><br>
