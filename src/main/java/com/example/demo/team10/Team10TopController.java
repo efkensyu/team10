@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.team10.entity.Team10BreedList;
 
@@ -35,6 +36,14 @@ public class Team10TopController {
 	@GetMapping("/team10/top") 
 	public String showTopPage() {
 	    return "team10/Team10Top"; 
+	}
+	
+	@PostMapping(value = "/team10/breedlist", params = "breedlistdetails")
+	public String showBreedDetail(@RequestParam("breedId") int breedId, Model model) {
+	    // breedIdを使って詳細情報を取得する処理
+	    Team10BreedList breed = team10service.getBreedByBreedId(breedId);
+	    model.addAttribute("breed", breed);
+	    return "team10/Team10BreedListDetails"; // 遷移先のテンプレート名
 	}
 	/*これを遷移先のHTMLに書くとTOPに戻ってこれる
 	 * <form method="get" th:action="@{/team10/top}">
