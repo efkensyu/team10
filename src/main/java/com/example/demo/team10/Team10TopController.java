@@ -52,10 +52,10 @@ public class Team10TopController {
 	
 	
 	//登録ボタンの処理
-	/*@PostMapping(value="/team10/inu",params="petregister")
+	@PostMapping(value="/team10/petregister",params="petregister")
 	public String send2(Model model) {
-		return "team10/Team10PetRegister";
-	}*/
+		return "team10/petregister/Team10PetRegisterIn";
+	}
 	
 	//ペット一覧ボタンの処理
 	/*@GetMapping(value="/team10/inu",params="petlist")
@@ -63,7 +63,5 @@ public class Team10TopController {
 		List<Team10BreedList> breeds = team10service.findAll();
 		model.addAttribute("breeds", breeds);
 		return "team10/Team10PetList";
-	}*/
-		
-	
+	}*/			
 }
