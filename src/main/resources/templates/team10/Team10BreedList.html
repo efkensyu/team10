@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>犬種一覧</title>
+<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedList.css">
 </head>
 <body>
+	<form method="get" th:action="@{/team10/top}">
+	    <input type="submit" value="トップへ戻る" />
+	</form>
+<div class="breed-list-container">
 
 <h2>犬種一覧表</h2>
 <table border="1">
@@ -31,9 +36,6 @@
     <input type="hidden" name="breedlistdetails" value="詳細を見る" />
 </form>
 
-<form method="get" th:action="@{/team10/top}">
-    <input type="submit" value="トップへ戻る" />
-</form>
 
 <script>
 function submitBreed(breedId) {
@@ -42,5 +44,6 @@ function submitBreed(breedId) {
 }
 </script>
 
+</div>
 </body>
 </html>

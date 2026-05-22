@@ -1,11 +1,64 @@
 body{
     background-color:burlywood;
-	background-image:url("")
+	
+	background-image: url("../Team10images/nikukyu_brown_left.png"),
+	        url("../Team10images/nikukyu_brown_right.png");
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+	background-position: 100px 50px, right 100px top 500px;
+	
+}
+
+p{
+	color:black;
+	text-align:center;
+	font-size:150%;	
 }
 
 h1{
 	color:brown;
 	text-align:center;
-	font-size:300%;
+	font-size:400%;
+}
+
+.kawaii-btn {
+    /* ① ボタンの大きさと文字の調整 */
+    display: inline-block;
+    width: 220px;               /* ボタンの横幅を大きく */
+    padding: 15px 0;
+	font-size: 18px;            /* 上下に隙間を作って縦幅もふっくら */           /* 文字を少し大きく */
+    font-weight: bold;          /* 文字を太字に */
+    letter-spacing: 2px;        /* 文字の間隔を少し広げておしゃれに */
+    text-align: center;
+	font-family: 'Corporate Logo Rounded', 'コーポレート・ロゴ・丸', 'Hiragino Maru Gothic ProN', sans-serif;
+
+    /* ② 色と形のカスタマイズ */
+    color: #ffffff;             /* 文字の色は白 */
+    background-color: #654321;  /* ぬくもりのあるキャメル・タルト色 */
+    border: none;               /* パソコン特有のカチカチした外枠を消す */
+    border-radius: 30px;        /* 💡 ここでボタンの両端を丸く（ドッグボーン風に） */
+    
+    /* ③ 立体感（影）をつけてぷっくりさせる */
+    box-shadow: 0 4px 0 #b8976c; /* ボタンの下に少し濃い色の影をつける */
+    
+    /* ④ その他のおまけ設定 */
+    cursor: pointer;            /* マウスを乗せたときに指マークにする */
+    transition: all 0.2s;       /* 動きをなめらかにするおまじない */
+}
+
+/* 🖱️ ボタンにマウスが乗ったときの「ぷにっ」とした動き */
+.kawaii-btn:hover {
+    background-color: #e6c294;  /* 少し明るいミルクティー色にふわっと変わる */
+    transform: translateY(2px); /* 💡 ボタンが少し下に沈む */
+    box-shadow: 0 2px 0 #b8976c; /* 影を薄くして、本当に押したような立体感を出す */
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;   /* ボタンを縦一列に並べる */
+    align-items: center;      /* 💡 これでボタンが画面の真ん中に揃います！ */
+    justify-content: center;
+    width: 100%;              /* 画面の横幅いっぱいに広げる */
+    margin-top: 30px;         /* 上のコンテンツとの間に少し隙間を作る（お好みで） */
 }
 

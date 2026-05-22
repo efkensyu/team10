@@ -1,0 +1,127 @@
+body{
+    background-color:burlywood;
+	
+	background-image: url("../Team10images/nikukyu_brown_left.png"),
+	        url("../Team10images/nikukyu_brown_right.png");
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+	background-position: 100px 50px, right 100px top 500px;
+	
+}
+
+h2 {
+    color: #654321;           /* 濃いめのチョコブラウン */
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 8px;
+}
+/* タイトルの下に可愛い下線をつける */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #d2b48c; /* キャメル色 */
+    border-radius: 2px;
+}
+
+/* 3. テーブル（表）を丸みのあるメニュー表風にする */
+table {
+    border-collapse: collapse; /* カチカチした二重線をなくす */
+    width: 90%;
+    max-width: 600px;         /* 広がりすぎないように制限 */
+    background-color: rgba(255, 255, 255, 0.9); /* ほんのり透ける白背景 */
+    border-radius: 15px;      /* 💡 表の角を丸くする */
+    overflow: hidden;         /* 角丸からはみ出た中身を隠す */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 優しい影をつける */
+    margin-bottom: 40px;
+}
+
+/* 表のヘッダー（一番上の行） */
+th {
+    background-color: #b8976c; /* 濃いめのキャメル・ラテ色 */
+    color: #ffffff;            /* 文字は白 */
+    padding: 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: none;              /* 線を消してスッキリ */
+}
+
+/* 表のデータセル（各犬種の行） */
+td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: #555555;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #f5ebd9; /* 薄いラテ色の横線だけ入れる */
+}
+
+/* 行にマウスを乗せたときに、ふわっと優しくハイライト */
+tr:hover td {
+    background-color: #fffaf0; /* フローラルホワイト（優しいミルク色） */
+}
+
+/* 犬種の画像も丸っこく可愛くする */
+td img {
+    border-radius: 10px;       /* 画像の角も丸く */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 4. 「詳細を見る」ボタン（表の中の小さなボタン） */
+td button {
+    background-color: #d2b48c; /* キャメル色 */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;      /* フォント設定を引き継ぐ */
+    border-radius: 20px;       /* ぷっくりカプセル型 */
+    box-shadow: 0 3px 0 #b8976c;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+td button:hover {
+    background-color: #e6c294;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #b8976c;
+}
+
+/* 5. 「トップへ戻る」ボタン（一番下の送信ボタン） */
+input[type="submit"] {
+    background-color: #654321; /* 落ち着いたチョコブラウン */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #4a3118;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #7c5835;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #4a3118;
+}
+
+
+.breed-list-container {
+    display: flex;
+    flex-direction: column;   /* 上から下に縦一列に並べる */
+    align-items: center;      /* 💡 これでタイトル、表、ボタンがすべて完全に真ん中に揃います */
+    justify-content: center;
+    width: 100%;              /* 画面の横幅いっぱいに広げる */
+    padding: 40px 0;          /* 上下に少し心地よい余白を作る */
+}
