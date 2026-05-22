@@ -2,7 +2,7 @@ package com.example.demo.team10.petlist;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.team10.repositories.Team10PetRegisterRepository;
 
@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class Team10PetListController {
 	private final Team10PetRegisterRepository petRegisterRepository;
 	
-	@PostMapping("/team10/petlist")			
+	@GetMapping("/team10/petlist")			
 	public String index(Model model) {
 //	    System.out.println("petlistにアクセスされました");
 //

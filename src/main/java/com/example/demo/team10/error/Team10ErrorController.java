@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.server.ResponseStatusException;
 
 @ControllerAdvice
 public class Team10ErrorController {
@@ -18,6 +19,14 @@ public class Team10ErrorController {
         		+ "-" + UUID.randomUUID().toString().substring(0, 4).toUpperCase();
         model.addAttribute("errorId", errorId);
         model.addAttribute("errorMessage", e.getMessage());
-        return "error";  // → templates/error.html へ
+        
+     // ステータスコードを追加
+        if (e instanceof ResponseStatusException) {
+            model.addAttribute("status", ((ResponseStatusException) e).getStatusCode().value());
+        } else {
+            model.addAttribute("status", 500);
+        }
+        
+        return "/team10/Team10Error";  // → templates/error.html へ
     }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>エラー</title>
+</head>
+<body>
+	<div th:switch="${status}">
+
+		<div th:case="404">
+		        <h1>ページが見つかりません</h1>
+		        <p>URLが間違っているか、削除された可能性があります。</p>
+		</div>
+
+	    <div th:case="500">
+	        <h1>サーバーエラーが発生しました</h1>
+	        <p>エラーID: <span th:text="${errorId}"></span></p>
+	    </div>
+
+	    <div th:case="*">
+	        <h1>エラーが発生しました</h1>
+	        <p>予期しないエラーが発生しました。</p>
+	    </div>
+	</div>
+	
+	<p th:text="${status}"></p>
+	<a th:href="@{/team10/top}">トップへ戻る</a>
+	
+</body>
+</html>
