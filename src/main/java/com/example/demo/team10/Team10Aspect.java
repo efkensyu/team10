@@ -27,7 +27,7 @@ public class Team10Aspect {
             return result;
 
         } catch (Throwable e) {
-            System.out.println("  例外発生: " + e.getClass().getSimpleName());
+        	System.out.println("  例外発生: " + e.getClass().getSimpleName());
             System.out.println("  メッセージ: " + e.getMessage());
             throw e;
         }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>エラー</title>
+</head>
+<body>
+	<h1>エラーが発生しました</h1>
+	    <p>申し訳ありません。予期しないエラーが発生しました。</p>
+
+	    <!-- errorId と errorMessage は GlobalExceptionHandler で model に入れた値 -->
+	    <p>エラーID: <span th:text="${errorId}"></span></p>
+	    <p>メッセージ: <span th:text="${errorMessage}"></span></p>
+
+	    <a th:href="@{/}">トップへ戻る</a>
+</body>
+</html>

@@ -57,10 +57,8 @@ public class Team10TopController {
 	}
 	
 	//ペット一覧ボタンの処理
-	/*@GetMapping(value="/team10/inu",params="petlist")
-	public String send3(Model model) {
-		List<Team10BreedList> breeds = team10service.findAll();
-		model.addAttribute("breeds", breeds);
-		return "team10/Team10PetList";
-	}*/			
+//	@PostMapping(value="/team10/petlist",params="petlist")
+//	public String send3(Model model) {
+//		return "team10/petlist/Team10PetList";
+//	}		
 }

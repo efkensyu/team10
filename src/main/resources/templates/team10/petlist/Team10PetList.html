@@ -6,6 +6,16 @@
 </head>
 <body>
 	<h1>みんなのペット</h1>
-	
+	<table border="1">
+		<th:block th:each="data : ${userDataList}">
+			<tr th:object="${data}">
+				<td th:text="*{bumonCd}"></td>
+				<td th:text="*{bumonNm}"></td>
+			</tr>
+		</th:block>
+	</table>
+	<form method="post" th:action="@{/team10/petlist/details}">
+		<input type="submit" name="petlistdetails" value="ペット詳細" />
+	</form>
 </body>
 </html>
