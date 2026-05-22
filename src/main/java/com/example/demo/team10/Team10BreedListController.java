@@ -16,9 +16,9 @@ public class Team10BreedListController {
         this.team10service = team10service;
     }
 	
+	//breedlistHTMLにあるbreedlistdetailsボタンが押されると、breedlistdetailsHTMLに飛ばす
 	@PostMapping(value="/team10/breedlist/details",params="breedlistdetails")
     public String showDetails(@RequestParam("breedId") int breedId, Model model) {
-		System.out.println(breedId);
 		Team10BreedList targetBreed = team10service.getBreedByBreedId(breedId);	
 		model.addAttribute("breed", targetBreed);
 		return "team10/Team10BreedList_details";
