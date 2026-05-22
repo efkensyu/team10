@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
-<form method="post" th:action="@{/team10/breedlist}">
-	
-<h1>うちの犬見てね！</h1>
+	<h1>うちの犬見てね！</h1>
 	<p>メニューを選択してください</p><br>
-	
-	
-	<input type="submit" name="breedlist" value="犬種一覧" />
-	<br>
-	<input type="submit" name="petregister" value="ペット登録" />
-	<br>
-	<input type="submit" name="petlist" value="ペット一覧" />
-	<br>
-	
+	<form method="post" th:action="@{/team10/breedlist}">
+		<input type="submit" name="breedlist" value="犬種一覧" />
 	</form>
-	
+	<br>
+	<form method="post" th:action="@{/team10/petregister}">
+		<input type="submit" name="petregister" value="ペット登録" />
+	</form>
+	<br>
+	<form method="post" th:action="@{/team10/petlist}">
+		<input type="submit" name="petlist" value="ペット一覧" />
+	</form>
+	<br>
 </body>
+
 </html>

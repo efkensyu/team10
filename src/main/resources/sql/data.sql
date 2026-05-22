@@ -1,5 +1,5 @@
 
-INSERT INTO pets_tbl (PET_NAME) VALUES('タマ');
+--INSERT INTO pets_tbl (PET_NAME) VALUES('タマ');
 
 /*INSERT INTO bumon_tbl VALUES('B01', '開発部');
 INSERT INTO bumon_tbl VALUES('B02', '技術部');
