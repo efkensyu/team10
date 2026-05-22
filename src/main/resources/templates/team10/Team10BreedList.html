@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>犬種一覧</title>
 </head>
 <body>
-<form method="post" th:action="@{/team10/breedlist}">
 
-	<h2>犬種一覧表</h2>
-	<table border="1">
-		<tr>
-			<th>画像</th>
-			<th>犬種</th>
-			<th>詳細</th>
-		</tr>
-		<tr th:each="breed:${breeds}">
-			<td><img th:src="@{/images/{filename}(filename=${breed.breedImage})}" width="100"></td>
-			<td th:text="${breed.breedName}"></td>
-			<td>
-			    <form method="post" th:action="@{/team10/breedlist/details}">
-			        <input type="hidden" name="breedId" th:value="${breed.breedId}" />
-			        <input type="submit" name="breedlistdetails" value="詳細を見る" />
-			    </form>
-			</td>
-		</tr>		
-	</table>
-	
-	<form method="get" th:action="@{/team10/top}">
-		<input type="submit" value="トップへ戻る" />
-	</form>	
-	
-</form>	
+<h2>犬種一覧表</h2>
+<table border="1">
+    <tr>
+        <th>画像</th>
+        <th>犬種</th>
+        <th>詳細</th>
+    </tr>
+    <tr th:each="breed:${breeds}">
+        <td><img th:if="${breed.breedImage != null}"
+                 th:src="@{/images/{filename}(filename=${breed.breedImage})}" width="100"></td>
+        <td th:text="${breed.breedName}"></td>
+        <td>
+            <button type="button" th:onclick="|submitBreed(${breed.breedId})|">
+                詳細を見る
+            </button>
+        </td>
+    </tr>
+</table>
+
+<!-- テーブルの外にフォームを1つだけ置く -->
+<form id="breedDetailForm" method="post" th:action="@{/team10/breedlist/details}">
+    <input type="hidden" id="breedIdInput" name="breedId" value="" />
+    <input type="hidden" name="breedlistdetails" value="詳細を見る" />
+</form>
+
+<form method="get" th:action="@{/team10/top}">
+    <input type="submit" value="トップへ戻る" />
+</form>
+
+<script>
+function submitBreed(breedId) {
+    document.getElementById('breedIdInput').value = breedId;
+    document.getElementById('breedDetailForm').submit();
+}
+</script>
+
 </body>
 </html>
