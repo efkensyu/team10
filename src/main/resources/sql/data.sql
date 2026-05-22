@@ -1,3 +1,6 @@
+
+--INSERT INTO pets_tbl (PET_NAME) VALUES('タマ');
+
 /*INSERT INTO bumon_tbl VALUES('B01', '開発部');
 INSERT INTO bumon_tbl VALUES('B02', '技術部');
 INSERT INTO bumon_tbl VALUES('B03', '管理部');
@@ -28,5 +31,6 @@ INSERT INTO breed_tbl (breed_id, breed_name, size_id, breed_image, feature) VALU
 ('ベン', 2, 'メス', '2022-04-12', 'password002', NULL, NULL),
 ('アン', 3, 'オス', '2025-08-13', 'password003', NULL, NULL),
 ('くろごま', 4, 'メス', '2025-11-10', 'password004', NULL, NULL);*/
+
 
 
