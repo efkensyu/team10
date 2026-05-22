@@ -19,8 +19,14 @@
         <th>詳細</th>
     </tr>
     <tr th:each="breed:${breeds}">
-        <td><img th:if="${breed.breedImage != null}"
-                 th:src="@{/images/{filename}(filename=${breed.breedImage})}" width="100"></td>
+		<td>
+		    <img th:if="${breed.breedImage != null}"
+		         th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" 
+		         width="100" alt="犬種の画像">
+		         
+		    <span th:unless="${breed.breedImage != null}">画像なし</span>
+		</td>
+		
         <td th:text="${breed.breedName}"></td>
         <td>
             <button type="button" th:onclick="|submitBreed(${breed.breedId})|">
