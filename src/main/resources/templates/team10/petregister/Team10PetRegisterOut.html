@@ -4,20 +4,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ペット登録完了画面</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetRegisterOut.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 
 <body>
-	<h1>登録が完了しました！</h1>
-	<h6>登録したペットは一覧画面でご確認ください</h6>
-
-	<br><br>
+	<div class="button-group">
 	<form method="get" th:action="@{/team10/top}">
-		<input type="submit" value="トップへ戻る" />
-	</form>
-	<form method="get" th:action="@{/team10/petlist}">
-		<input type="submit" name="petlist" value="ペット一覧へ"/>
-	</form>
+			<input type="submit" value="トップへ戻る" />
+		</form>
+		<form method="get" th:action="@{/team10/petlist}">
+			<input type="submit" name="petlist" value="ペット一覧へ"/>
+		</form>
+	</div>
+	
+	<div class="pet-registerout-container">
+	
+	<h1>🐾登録が完了しました！🐾</h1>
+	<h3>登録したペットは一覧画面でご確認ください</h3>
 
+	<br>
+</div>
 </body>
 
 </html>

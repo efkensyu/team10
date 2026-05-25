@@ -3,10 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>ペットの詳細</title>
+<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetListDetails.css">
+<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 <body>
+	
+	<div class="top-buttons-container">
+	<form method="get" th:action="@{/team10/petlist}">
+				<input type="submit" value="一覧に戻る"/>
+		</form>
+	</div>
+		
     <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
-    <table>
+	<div class="detail-page-wrapper">
+	
+	<table>
         <tr>
 			<th>画像</th>
             <td>
@@ -39,8 +50,7 @@
 			<td th:text="${pet.birthday != null} ? ${#temporals.format(pet.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
 		</tr>
     </table>
-	<form method="get" th:action="@{/team10/petlist}">
-			<input type="submit" value="一覧に戻る"/>
-	</form>
+
+</div>
 </body>
 </html>

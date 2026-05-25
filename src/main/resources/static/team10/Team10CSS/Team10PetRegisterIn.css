@@ -9,6 +9,66 @@ body{
 	
 }
 
+.pet-register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0;  
+}
+
+.pet-register-container form {
+    background-color: rgba(255, 255, 255, 0.95); /* ほんのり透ける白 */
+    border-radius: 20px;                         /* しっかり丸みをつける */
+    padding: 35px 40px;
+    width: 100%;
+    max-width: 450px;                            /* すっきり見える幅に制限 */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);    /* 柔らかい影 */
+    box-sizing: border-box;
+    
+    /* フォーム内の文字を左寄せにしつつ中央に配置 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.pet-register-container form {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2;
+}
+
+/* 入力パーツ共通（テキスト、ファイル、セレクト、日付、テキストエリア、パスワード） */
+input[type="text"],
+input[type="file"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid #d2b48c; /* 優しい落ちついたベージュの線 */
+    border-radius: 12px;       /* 入力欄の角を丸く */
+    background-color: #fff9f2; /* ほんのりクリーム色の背景 */
+    color: #4a3118;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="radio"] {
+    margin: 10px 5px 10px 10px;
+    transform: scale(1.1);     /* ほんの少しだけ大きくして押しやすく */
+    cursor: pointer;
+}
+
+
+
 .pet-register-container{
 	display: flex;
 	    flex-direction: column;   /* 上から下に縦一列に並べる */
@@ -36,4 +96,46 @@ input[type="submit"]:hover {
     background-color: #7c5835;
     transform: translateY(1px);
     box-shadow: 0 2px 0 #4a3118;
+}
+
+.title{
+	font-size: 22px;
+	    font-weight: bold;
+	    color: #654321;
+	    margin-bottom: 20px;
+	    position: relative;
+}
+
+.form-control-date {
+    background-color: #ffffff;      /* 入力欄の中身は綺麗な白 */
+    border: 2px solid #7a5230;      /* 画像の肉球やボタンに使われている濃い茶色 */
+    border-radius: 25px;            /* 「詳細を見る」ボタンに合わせたしっかりめの角丸 */
+    color: #5c3a21;                 /* 入力される文字の色も濃い茶色に */
+    padding: 8px 15px;              /* 中に少しゆとりを持たせる */
+    font-size: 16px;                /* 文字の大きさを調整 */
+    outline: none;                  /* クリックした時のデフォルトの青い枠線を消す */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* ほんの少しだけ影をつけて立体感 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+/* マウスを乗せた（ホバーした）時の動き */
+.form-control-date:hover {
+    background-color: #fffbf7;      /* ほんのり温かみのある白に変わる */
+    border-color: #b58a63;          /* 枠線の茶色を少し明るく */
+}
+
+/* クリックして選択している時の動き */
+.form-control-date:focus {
+    border-color: #7a5230;
+    box-shadow: 0 0 0 3px rgba(122, 82, 48, 0.2); /* 茶色のふんわりした光を纏わせる */
+}
+
+/* 右端にある「カレンダーマーク（カレンダーピッカー）」のアイコンを茶色っぽくする */
+.form-control-date::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    /* デフォルトの黒いアイコンを、画像に合わせた茶色に変換する魔法のフィルター */
+    filter: invert(31%) sepia(23%) saturate(1134%) hue-rotate(341deg) brightness(95%) contrast(89%);
+    padding: 2px;
 }

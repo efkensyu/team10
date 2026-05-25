@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>登録ペット一覧</title>
+<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetList.css">
+<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 <body>
-	<h1>みんなのペット</h1>
+	
 	<form method="get" th:action="@{/team10/top}">
 		<input type="submit" value="トップに戻る"/>
 	</form>
+	
+	<div class="pet-list-container">
+		<h1>🐾みんなのペット🐾</h1>
 	<table>
 	    <th:block th:each="data : ${DataList}">
 	        <tr th:object="${data}">
@@ -26,5 +31,6 @@
 	        </tr>
 	    </th:block>
 	</table>
+</div>
 </body>
 </html>
