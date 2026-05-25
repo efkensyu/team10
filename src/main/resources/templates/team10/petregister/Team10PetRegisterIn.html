@@ -4,9 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ペット登録画面</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetRegisterIn.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 
 <body>
+	<form method="get" th:action="@{/team10/top}">
+			<input type="submit" value="トップへ戻る" />
+		</form>
+	
+	<div class="pet-register-container">
 
 	<form method="post" th:action="@{/team10/petregister}" th:object="${team10PetRegister}"
 		enctype="multipart/form-data">
@@ -47,11 +54,10 @@
 		<input type="submit" value="送信" />
 
 	</form>
-	<br><br>
-	<form method="get" th:action="@{/team10/top}">
-		<input type="submit" value="トップへ戻る" />
-	</form>
 
+	<br>
+
+</div>	
 </body>
 
 </html>
