@@ -29,10 +29,10 @@ public class Team10PetRegister {
 
     private Integer breedId;
 
-    private String petImage; // 画像はController側でファイルチェックするから、ここは一旦そのままでOK
+    private String petImage;
 
     @NotBlank(message = "パスワードを入力してください")
-    @Size(min = 6, max = 255, message = "パスワードは6文字以上255文字以内で入力してください")
+    @Size(min = 4, max = 255, message = "パスワードは4文字以上255文字以内で入力してください")
     private String petPass;
 
     @NotBlank(message = "性別を選択してください")
