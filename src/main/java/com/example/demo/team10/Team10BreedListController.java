@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.team10.entity.Team10BreedList;
+import com.example.demo.team10.top.Team10Service;
 
 @Controller
 
