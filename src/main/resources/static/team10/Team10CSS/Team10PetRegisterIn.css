@@ -1,0 +1,39 @@
+body{
+    background-color:burlywood;
+	
+	background-image: url("../Team10images/nikukyu_brown_left.png"),
+	        url("../Team10images/nikukyu_brown_right.png");
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+	background-position: 100px 50px, right 100px top 500px;
+	
+}
+
+.pet-register-container{
+	display: flex;
+	    flex-direction: column;   /* 上から下に縦一列に並べる */
+	    align-items: center;      /* 💡 これでタイトル、表、ボタンがすべて完全に真ん中に揃います */
+	    justify-content: center;
+	    width: 100%;              /* 画面の横幅いっぱいに広げる */
+	    padding: 40px 0;  
+}
+
+input[type="submit"] {
+    background-color: #654321; /* 落ち着いたチョコブラウン */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #4a3118;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #7c5835;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #4a3118;
+}
