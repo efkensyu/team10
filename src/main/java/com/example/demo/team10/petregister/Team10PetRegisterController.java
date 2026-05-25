@@ -37,8 +37,7 @@ public class Team10PetRegisterController {
 			String fileName = service.saveImage(imageFile);
 			pet.setPetImage(fileName);
 		}
-		//ダミーパスワード
-		pet.setPetPass("dummy_password");
+
 		//リポジトリ実行
 		service.saveTeam10PetRegister(pet);
 		List<Team10PetRegister> DataList = service.getAllTeam10PetRegister();
