@@ -7,35 +7,16 @@
 </head>
 
 <body>
-	<table border="1">
+	<h1>登録が完了しました！</h1>
+	<h6>登録したペットは一覧画面でご確認ください</h6>
 
-		<tr>
-			<th>画像</th>
-			<th>ペットID</th>
-			<th>ペット名</th>
-			<th>性別</th>
-			<th>犬種</th>
-			<th>メモ</th>
-			<th>誕生日</th>
-			<th>パスワード</th>
-		</tr>
-
-		<th:block th:each="data : ${DataList}">
-			<tr th:object="${data}">
-				<td>
-					<img th:if="*{petImage}" th:src="@{/team10/petimages/{name}(name=*{petImage})}" width="200" alt="ペットの画像" />
-					<span th:unless="*{petImage}">画像なし</span>
-				</td>
-				<td th:text="*{petId}"></td>
-				<td th:text="*{petName}"></td>
-				<td th:text="*{gender}"></td>
-				<td th:text="*{breedName}"></td>
-				<td th:text="*{memo}"></td>
-				<td th:text="${data.birthday != null} ? ${#temporals.format(data.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
-				<td th:text="*{petPass}"></td>
-			</tr>
-		</th:block>
-	</table>
+	<br><br>
+	<form method="get" th:action="@{/team10/top}">
+		<input type="submit" value="トップへ戻る" />
+	</form>
+	<form method="get" th:action="@{/team10/petlist}">
+		<input type="submit" name="petlist" value="ペット一覧へ"/>
+	</form>
 
 </body>
 
