@@ -2,9 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
-<title>エラー</title>
+<title>ペットの詳細</title>
 </head>
 <body>
-
+    <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
+    <table>
+        <tr>
+			<th>画像</th>
+            <td>
+                <img th:if="${pet.petImage}" th:src="@{/team10/petimages/{name}(name=${pet.petImage})}" width="200" alt="ペットの画像"/>
+                <span th:unless="${pet.petImage}">画像なし</span>
+            </td>
+        </tr>
+        <tr>
+			<th>ペットID</th>
+			<td th:text="${pet.petId}"></td>
+		</tr>
+        <tr>
+			<th>ペット名</th>
+			<td th:text="${pet.petName}"></td>
+		</tr>
+        <tr>
+			<th>性別</th>
+			<td th:text="${pet.gender}"></td>
+		</tr>
+        <tr>
+			<th>犬種</th>
+			<td th:text="${pet.breedName}"></td>
+		</tr>
+        <tr>
+			<th>メモ</th>
+			<td th:text="${pet.memo}"></td>
+		</tr>
+        <tr>
+			<th>誕生日</th>
+			<td th:text="${pet.birthday != null} ? ${#temporals.format(pet.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
+		</tr>
+    </table>
+	<form method="get" th:action="@{/team10/petlist}">
+			<input type="submit" value="一覧に戻る"/>
+	</form>
 </body>
 </html>

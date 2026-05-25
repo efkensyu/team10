@@ -10,7 +10,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.team10.entity.Team10BreedList;
 import com.example.demo.team10.entity.Team10PetRegister;
+import com.example.demo.team10.repositories.Team10BreedListRepository;
 import com.example.demo.team10.repositories.Team10PetRegisterRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -18,29 +20,43 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class Team10PetListService {
-	private final Team10PetRegisterRepository petrepository;
+    private final Team10PetRegisterRepository repository;
+    private final Team10BreedListRepository breedRepository;
 
-	public void saveTeam10PetRegister(Team10PetRegister pet) {
-		petrepository.insertTeam10PetRegister(pet);
-	}
+    public void saveTeam10PetRegister(Team10PetRegister pet) {
+        repository.insertTeam10PetRegister(pet);
+    }
 
-	public List<Team10PetRegister> getAllTeam10PetRegister() {
-		return petrepository.findAll();
-	}
+    public List<Team10PetRegister> getAllTeam10PetRegister() {
+        List<Team10PetRegister> dataList = repository.findAll();
+        for (Team10PetRegister p : dataList) {
+            if (p.getBreedId() != null) {
+                Team10BreedList breed = breedRepository.getBreedByBreedId(p.getBreedId());
+                if (breed != null) {
+                    p.setBreedName(breed.getBreedName());
+                }
+            }
+        }
+        return dataList;
+    }
 
-	public String saveImage(MultipartFile imageFile) throws IOException {
-		//  元のファイル名を取得
-		String originalFilename = imageFile.getOriginalFilename();
-		// リネーム
-		String fileName = System.currentTimeMillis() + "_" + originalFilename;
-		// 保存フォルダの指定
-		Path uploadPath = Paths.get("src/main/resources/static/team10/petimages/");
+    public Team10PetRegister getPetById(int petId) {
+        Team10PetRegister pet = repository.findById(petId).orElse(null);
+        if (pet != null && pet.getBreedId() != null) {
+            Team10BreedList breed = breedRepository.getBreedByBreedId(pet.getBreedId());
+            if (breed != null) {
+                pet.setBreedName(breed.getBreedName());
+            }
+        }
+        return pet;
+    }
 
-		// 決めたファイル名で画像を保存する
-		Path filePath = uploadPath.resolve(fileName);
-		Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-
-		// 作ったファイル名を返す
-		return fileName;
-	}
+    public String saveImage(MultipartFile imageFile) throws IOException {
+        String originalFilename = imageFile.getOriginalFilename();
+        String fileName = System.currentTimeMillis() + "_" + originalFilename;
+        Path uploadPath = Paths.get("src/main/resources/static/team10/petimages/");
+        Path filePath = uploadPath.resolve(fileName);
+        Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+        return fileName;
+    }
 }

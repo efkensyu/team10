@@ -22,8 +22,8 @@
 	        <p>予期しないエラーが発生しました。</p>
 	    </div>
 	</div>
-	
-	<p th:text="${status}"></p>
+
+	<p th:text="${status} + 'error'"></p>
 	<a th:href="@{/team10/top}">トップへ戻る</a>
 	
 </body>
