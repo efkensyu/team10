@@ -17,6 +17,7 @@
 			<th>犬種</th>
 			<th>メモ</th>
 			<th>誕生日</th>
+			<th>パスワード</th>
 		</tr>
 
 		<th:block th:each="data : ${DataList}">
@@ -31,6 +32,7 @@
 				<td th:text="*{breedName}"></td>
 				<td th:text="*{memo}"></td>
 				<td th:text="${data.birthday != null} ? ${#temporals.format(data.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
+				<td th:text="*{petPass}"></td>
 			</tr>
 		</th:block>
 	</table>

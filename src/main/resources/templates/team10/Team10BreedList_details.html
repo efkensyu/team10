@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>犬種詳細</title>
 <link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedListDetails.css">
+<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 <body>
 
@@ -22,9 +23,16 @@
         <h1 class="detail-title">🐾 犬種詳細 🐾</h1>
         
         <div class="breed-card">
-            <div class="card-image-wrapper">
-                <img th:src="@{/images/{filename}(filename=${breed.breedImage})}" class="breed-detail-img">
-            </div>
+			<div class="card-image-wrapper">
+			    <img th:if="${breed.breedImage != null}" 
+			         th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" 
+			         class="breed-detail-img" alt="犬種の画像">
+			         
+			    <span th:unless="${breed.breedImage != null}" 
+			          style="color: #b8976c; font-weight: bold; display: block; padding: 40px 0;">
+			          🐾 No Image 🐾
+			    </span>
+			</div>
             
             <div class="card-content">
                 <div class="info-item">

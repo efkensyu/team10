@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,18 +30,35 @@ public class Team10PetRegisterController {
 	public String index(Model model) {
 		List<Team10BreedList> breedList = breedRepository.findAll();
 		model.addAttribute("breedList", breedList);
+		
+		Team10PetRegister initPet = new Team10PetRegister();
+		initPet.setGender("オス"); 
+		initPet.setPetName("ポチ");
+		model.addAttribute("team10PetRegister", initPet);
+		
 		return "team10/petregister/Team10PetRegisterIn";
 	}
 
 	@PostMapping("/team10/petregister")
-	public String register(Team10PetRegister pet, @RequestParam("imageFile") MultipartFile imageFile, Model model)
+	public String register(
+			@Validated @ModelAttribute("team10PetRegister") Team10PetRegister pet,
+			BindingResult result, 
+			@RequestParam("imageFile") MultipartFile imageFile, 
+			Model model
+			)
 			throws IOException {
+		//バリデーションエラー受け取り
+		if (result.hasErrors()) {
+			List<Team10BreedList> breedList = breedRepository.findAll();
+			model.addAttribute("breedList", breedList);
+			return "team10/petregister/Team10PetRegisterIn";
+		}
+		
 		if (!imageFile.isEmpty()) {
 			String fileName = service.saveImage(imageFile);
 			pet.setPetImage(fileName);
 		}
-		//ダミーパスワード
-		pet.setPetPass("dummy_password");
+
 		//リポジトリ実行
 		service.saveTeam10PetRegister(pet);
 		List<Team10PetRegister> DataList = service.getAllTeam10PetRegister();

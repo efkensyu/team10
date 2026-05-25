@@ -15,7 +15,7 @@ public class Team10BreedList {
 	private int breedId;
 	private String breedName;
 	@Lob
-	private byte[] breedImage;
+	private String breedImage;
 	private Integer sizeId;
 	private String feature;
 }
