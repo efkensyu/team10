@@ -10,9 +10,15 @@
 <body>
 	
 	<div class="top-buttons-container">
+		
+	<form method="get" th:action="@{/team10/top}">
+		<input type="submit" value="トップに戻る"/>
+	</form>
+	
 	<form method="get" th:action="@{/team10/petlist}">
-				<input type="submit" value="一覧に戻る"/>
-		</form>
+		<input type="submit" value="一覧に戻る"/>
+	</form>
+	
 	</div>
 		
     <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
@@ -55,10 +61,6 @@
 	    <span th:if="${passError}" th:text="${passError}" style="color: red;"></span><br>
 	    <input type="submit" name="action" value="編集する"/>
 	    <input type="submit" name="action" value="削除する"/>
-	</form>
-	
-	<form method="get" th:action="@{/team10/petlist}">
-			<input type="submit" value="一覧に戻る"/>
 	</form>
 
 	</div>

@@ -40,19 +40,21 @@ public class Team10PetListController {
                            Model model) {
         Team10PetRegister pet = service.getPetById(petId);
 
+        //空欄でエラー
         if (petPass == null || petPass.isEmpty()) {
             model.addAttribute("pet", pet);
             model.addAttribute("passError", "パスワードを入力してください");
             return "/team10/petlist/Team10PetListDetails";
         }
 
+        //パスワード合ってるか確認
         if (!pet.getPetPass().equals(petPass)) {
             model.addAttribute("pet", pet);
             model.addAttribute("passError", "パスワードが違います");
             return "/team10/petlist/Team10PetListDetails";
         }
 
-        // 編集と削除で分岐
+        // 削除
         if ("削除する".equals(action)) {
             service.deletePetById(petId);
             return "redirect:/team10/petlist";
