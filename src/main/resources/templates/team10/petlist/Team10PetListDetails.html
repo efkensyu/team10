@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>ペットの詳細</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetListDetails.css">
+<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetDetails.css">
+
 <link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 <body>
@@ -15,13 +16,13 @@
 	</div>
 		
     <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
-	<div class="detail-page-wrapper">
 	
+	<div class="petlistdetail-container">
 	<table>
         <tr>
 			<th>画像</th>
             <td>
-                <img th:if="${pet.petImage}" th:src="@{/team10/petimages/{name}(name=${pet.petImage})}" width="200" alt="ペットの画像"/>
+                <img th:if="${pet.petImage}" th:src="@{/team10/petimages/{name}(name=${pet.petImage})}" alt="ペットの画像"/>
                 <span th:unless="${pet.petImage}">画像なし</span>
             </td>
         </tr>
@@ -50,7 +51,7 @@
 			<td th:text="${pet.birthday != null} ? ${#temporals.format(pet.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
 		</tr>
     </table>
+	</div>
 
-</div>
 </body>
 </html>
