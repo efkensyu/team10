@@ -50,7 +50,7 @@
 		<textarea th:field="*{memo}" rows="4" cols="40" placeholder="ペットの特徴やメモを書く"></textarea>
 		<span th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}" style="color:red;"></span>
 		<br>
-		パスワードの設定
+		編集用パスワードの設定
 		<input type="password" th:field="*{petPass}" placeholder="パスワードを入力してください" />
 		<span th:if="${#fields.hasErrors('petPass')}" th:errors="*{petPass}" style="color:red;"></span>
 		<br>
