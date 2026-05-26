@@ -36,10 +36,12 @@ public class Team10PetEditorController {
 
     @PostMapping("/team10/petlisteditor")
     public String edit(@ModelAttribute("pet") Team10PetRegister pet,
-                       @RequestParam("petPass") String petPass,
                        @RequestParam("imageOption") String imageOption,
                        @RequestParam(value = "imageFile", required = false) MultipartFile imageFile,
                        Model model) throws IOException {
+    	
+    	Team10PetRegister original = service.getPetById(pet.getPetId());
+    pet.setPetPass(original.getPetPass());
 
     	if ("new".equals(imageOption) && imageFile != null && !imageFile.isEmpty()) {
             String fileName = service.saveImage(imageFile);
