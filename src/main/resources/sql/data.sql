@@ -1,19 +1,9 @@
-
---INSERT INTO pets_tbl (PET_NAME) VALUES('タマ');
-
-/*INSERT INTO bumon_tbl VALUES('B01', '開発部');
-INSERT INTO bumon_tbl VALUES('B02', '技術部');
-INSERT INTO bumon_tbl VALUES('B03', '管理部');
-INSERT INTO bumon_tbl VALUES('B04', '総務部');
-INSERT INTO bumon_tbl VALUES('B05', '営業部');*/
-
-INSERT INTO size_tbl (size_name) VALUES 
-('小型犬'), 
-('中型犬'), 
+insert into team10_size_tbl (size_name) values
+('小型犬'),
+('中型犬'),
 ('大型犬');
 
-
-INSERT INTO breed_tbl (breed_id, breed_name, size_id, breed_image, feature) VALUES
+INSERT INTO team10_breed_tbl (breed_id, breed_name, size_id, breed_image, feature) VALUES
 (1, 'トイプードル', 1, 'breed_1.png','フランスで愛玩犬として親しまれてきた小型犬で、巻き毛の被毛とぬいぐるみのような見た目が特徴。賢く人懐っこい性格でしつけやすく、家庭犬として高い人気を持つ。'),
 (2, 'パグ', 2, 'breed_2.png','中国で古くから王族に愛された歴史を持つ中型犬。しわの多い顔と丸い目、短い鼻が特徴で、穏やかで甘えん坊な性格から家庭犬として親しまれている。'),
 (3, 'ゴールデンレトリーバー', 3, 'breed_3.png', '金色の長い被毛と大きく優しい表情が魅力の大型犬。イギリスで狩猟犬として活躍してきた歴史を持ち、穏やかで賢く、人との関わりを好む性格で知られている。'),
@@ -26,14 +16,7 @@ INSERT INTO breed_tbl (breed_id, breed_name, size_id, breed_image, feature) VALU
 (10, 'セントバーナード', 3, 'breed_10.png', '雪山で人命救助犬として活躍してきた歴史を持つ大型犬。たくましい体と優しさあふれる表情が印象的で、穏やかで包み込むような性格から“やさしい巨人”として親しまれている。');
 
 
---INSERT INTO pets_tbl (pet_name, breed_id, gender, birthday, pet_pass, pet_image, memo) VALUES
---('マロン', 1, 'オス', '2019-03-21', 'password001', NULL, NULL),
---('ベン', 2, 'メス', '2022-04-12', 'password002', NULL, NULL),
---('アン', 3, 'オス', '2025-08-13', 'password003', NULL, NULL),
---('くろごま', 4, 'メス', '2025-11-10', 'password004', NULL, NULL);
-
-
-INSERT INTO pets_tbl (pet_name, breed_id, gender, birthday, pet_pass, pet_image, memo) VALUES
+INSERT INTO team10_pets_tbl (pet_name, breed_id, gender, birthday, pet_pass, pet_image, memo) VALUES
 ('マロン', 1, 'オス', '2019-03-21', 'password001', 'pets_1.jpg', 'うちの天使マロンです！
 白金高輪のカフェやオフ会にいつもおめかしして連れて行ってます！
 美意識高めな私とお揃いのトレンド服を着こなす姿が最高にキュート！
