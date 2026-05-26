@@ -59,4 +59,8 @@ public class Team10PetListService {
         Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
         return fileName;
     }
+    
+    public void deletePetById(int petId) {
+        repository.deleteById(petId);
+    }
 }

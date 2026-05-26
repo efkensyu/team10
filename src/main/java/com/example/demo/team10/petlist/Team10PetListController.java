@@ -36,6 +36,7 @@ public class Team10PetListController {
     @PostMapping("/team10/peteditor/auth")
     public String editAuth(@RequestParam("petId") int petId,
                            @RequestParam("petPass") String petPass,
+                           @RequestParam("action") String action,
                            Model model) {
         Team10PetRegister pet = service.getPetById(petId);
 
@@ -51,6 +52,12 @@ public class Team10PetListController {
             return "/team10/petlist/Team10PetListDetails";
         }
 
+        // 編集と削除で分岐
+        if ("削除する".equals(action)) {
+            service.deletePetById(petId);
+            return "redirect:/team10/petlist";
+        }
+        
         // OK → 編集画面へ
         return "redirect:/team10/petlisteditor?petId=" + petId;
     }
