@@ -31,7 +31,7 @@ public class Team10PetEditorController {
         List<Team10BreedList> breedList = breedRepository.findAll();
         model.addAttribute("pet", pet);
         model.addAttribute("breedList", breedList);
-        return "team10/petlisteditor/Team10PetListEditor";  // ← 修正
+        return "team10/petlist/Team10PetListEditor";  // ← 修正
     }
 
     @PostMapping("/team10/petlisteditor")
