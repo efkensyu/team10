@@ -1,0 +1,166 @@
+body {
+    background-color: burlywood;
+    background-image: url("../Team10images/nikukyu_brown_left.png"),
+                      url("../Team10images/nikukyu_brown_right.png");
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: 100px 50px, right 100px top 500px;
+    font-family: sans-serif;
+}
+
+/* ページ全体のタイトル（コロンちゃんの編集） */
+.name {
+	font-size: 22px;
+		    font-weight: bold;
+		    color: #654321;
+		    margin-bottom: 10px;
+		    position: relative;
+			text-align: center;
+			margin-top: 50px;
+}
+
+/* 中央配置のためのコンテナ */
+.petlist-editor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0 60px 0;  
+}
+
+/* 白いカード型の背景（HTMLで追加したラッパー） */
+.form-card {
+    background-color: rgba(255, 255, 255, 0.95); /* ほんのり透ける白 */
+    border-radius: 20px;                         /* しっかり丸みをつける */
+    padding: 35px 40px;
+    width: 100%;
+    max-width: 450px;                            /* すっきり見える幅に制限 */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);    /* 柔らかい影 */
+    box-sizing: border-box;
+}
+
+/* フォーム内の文字設定 */
+.form-card form {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: #4a3118;
+}
+
+/* 入力パーツ共通 */
+input[type="text"],
+input[type="file"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 18px; /* 下に少しゆとりを持たせる */
+    border: 2px solid #d2b48c; /* 優しい落ち着いたベージュの線 */
+    border-radius: 12px;       /* 入力欄の角を丸く */
+    background-color: #fff9f2; /* ほんのりクリーム色の背景 */
+    color: #4a3118;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* ラジオボタン単体 */
+input[type="radio"] {
+    margin: 5px 5px 5px 0;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* 画像選択と性別の選択肢を綺麗にまとめるボックス */
+.radio-group {
+    background-color: #fff9f2;
+    border: 2px solid #d2b48c;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    font-weight: normal; /* 選択肢の文字は少し細くして見やすく */
+    line-height: 1.8;
+}
+
+.radio-group label {
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* 📅 誕生日（カレンダー）の専用スタイル */
+.form-control-date {
+    background-color: #fff9f2 !important;
+    border: 2px solid #d2b48c !important;
+    border-radius: 12px !important;
+    color: #4a3118 !important;
+}
+
+.form-control-date::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(31%) sepia(23%) saturate(1134%) hue-rotate(341deg) brightness(95%) contrast(89%);
+}
+
+/* 縦並びボタンの調整エリア */
+.btn-group,
+.btn-group-secondary {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-group-secondary {
+    margin-top: 12px; /* ボタンとボタンの間の隙間 */
+}
+
+/* 🟫 メインの「更新する」ボタン */
+input[type="submit"].submit-btn {
+    width: 100%;
+    background-color: #654321; /* 落ち着いたチョコブラウン */
+    color: white;
+    border: none;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #4a3118;
+    transition: all 0.2s;
+}
+
+input[type="submit"].submit-btn:hover {
+    background-color: #7c5835;
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 #4a3118;
+}
+
+/* 🟫 「詳細に戻る」ボタン */
+input[type="submit"].return-btn {
+    width: 100%;
+    background-color: #503419; /* 更新ボタンより少しだけ濃いブラウンにしてメリハリをつける */
+    color: white;
+    border: none;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #33200f;
+    transition: all 0.2s;
+}
+
+input[type="submit"].return-btn:hover {
+    background-color: #654321;
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 #33200f;
+}

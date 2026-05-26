@@ -23,8 +23,8 @@ input[type="submit"] {
     border: none;
     
     /* 💡 ボタンの大きさをアップ！横幅をしっかり確保します */
-    padding: 14px 40px;        /* 上下の厚みと左右の幅を広げました（元は12px 30px） */
-    font-size: 18px;           /* 文字も一回り大きくして視認性アップ！（元は15px） */
+    padding: 12px 30px;        /* 上下の厚みと左右の幅を広げました（元は12px 30px） */
+    font-size: 15px;           /* 文字も一回り大きくして視認性アップ！（元は15px） */
     
     font-weight: bold;
     font-family: inherit;
@@ -51,7 +51,10 @@ input[type="submit"]:hover {
     top: 20px;                 /* 💡 1pxだと上に張り付きすぎるので、少し下げて他の画面と揃いやすく */
     left: 20px;
     z-index: 10;               /* 他の要素の下に隠れないようにお守り */
-}
+	display: flex;             /* 💡 中にあるフォームを横並びにするおまじない */
+	gap: 10px;
+	
+	}
 
 /* --- タイトル（h1）のデザイン --- */
 h1 {
@@ -121,4 +124,10 @@ td img {
 td span {
     color: #b5a494;
     font-style: italic;
+}
+
+.auth-btn-group {
+    margin-top: 20px;          /* 💡 パスワード入力欄から「少し下に下げる」指定 */
+    display: flex;             /* 2つのボタンを横並びにする */
+    gap: 15px;                 /* ボタンとボタンの間の隙間 */
 }
