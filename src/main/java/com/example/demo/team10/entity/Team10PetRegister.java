@@ -12,6 +12,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Entity
@@ -39,6 +41,7 @@ public class Team10PetRegister {
     private String gender;
 
     @PastOrPresent(message = "誕生日に未来の日付は設定できません")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
 
     @Size(max = 1000, message = "メモは1000文字以内で入力してください")
