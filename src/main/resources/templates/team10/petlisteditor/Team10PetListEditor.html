@@ -7,35 +7,47 @@
 <body>
     <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の編集|"></h1>
 
-    <form method="post" th:action="@{/team10/petlist/edit}" th:object="${pet}"
+    <form method="post" th:action="@{/team10/petlisteditor}" th:object="${pet}"
           enctype="multipart/form-data">
 
         <input type="hidden" th:field="*{petId}"/>
-        <input type="hidden" th:field="*{petPass}"/>
+
+        画像の選択<br>
+        <input type="radio" name="imageOption" value="keep" checked
+               onclick="document.getElementById('newImageArea').style.display='none'"/> 同じ画像を使う
+        <input type="radio" name="imageOption" value="new"
+               onclick="document.getElementById('newImageArea').style.display='block'"/> 新しい画像を登録する
+        <div id="newImageArea" style="display:none;">
+            <input type="file" name="imageFile" accept="image/*"/>
+        </div>
+        <!-- 現在の画像パスをhiddenで保持 -->
         <input type="hidden" th:field="*{petImage}"/>
+        <br>
 
         ペットの名前
         <input type="text" th:field="*{petName}"/>
         <br>
-        ペットの画像を変更
-        <input type="file" name="imageFile" accept="image/*"/>
-        <br>
+
         犬種を選択
         <select th:field="*{breedId}">
             <option value="">未選択（雑種など）</option>
             <option th:each="breed : ${breedList}" th:value="${breed.breedId}" th:text="${breed.breedName}"></option>
         </select>
         <br>
+
         性別
         <input type="radio" th:field="*{gender}" value="オス"/> オス
         <input type="radio" th:field="*{gender}" value="メス"/> メス
         <br>
+
         誕生日
         <input type="date" th:field="*{birthday}"/>
         <br>
+
         メモ<br>
         <textarea th:field="*{memo}" rows="4" cols="40"></textarea>
         <br>
+
         <input type="submit" value="更新する"/>
     </form>
 

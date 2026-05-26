@@ -15,11 +15,13 @@
 	
 	<div class="pet-register-container">
 
+	<h2 class="title">🐾ペットの情報を登録してね🐾</h2>
+	
 	<form method="post" th:action="@{/team10/petregister}" th:object="${team10PetRegister}"
 		enctype="multipart/form-data">
+		<input type="hidden" th:field="*{petId}"/>
 		ペットの名前を入力
 		<input type="text" th:field="*{petName}" />
-		<br>
 		<span th:if="${#fields.hasErrors('petName')}" th:errors="*{petName}" style="color:red;"></span>
 		<br>
 		ペットの画像を選択
@@ -34,9 +36,11 @@
 		<span th:if="${#fields.hasErrors('breedId')}" th:errors="*{breedId}" style="color:red;"></span>
 		<br>
 		性別を入力
+		<div class="radio-group">
 		<input type="radio" th:field="*{gender}" value="オス" /> オス
 		<input type="radio" th:field="*{gender}" value="メス" /> メス
 		<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" style="color:red;"></span>
+		</div>
 		<br>
 		ペットの誕生日を入力
 		<input type="date" th:field="*{birthday}" class="form-control-date">

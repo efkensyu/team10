@@ -1,0 +1,139 @@
+body{
+    background-color:burlywood;
+	
+	background-image: url("../Team10images/nikukyu_brown_left.png"),
+	        url("../Team10images/nikukyu_brown_right.png");
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+	background-position: 100px 50px, right 100px top 500px;
+	
+}
+
+.top-buttons-container {
+    position: absolute;       /* 💡 画面の左上に強制固定します */
+    top: 20px;
+    left: 20px;
+    display: flex;            /* ボタンを横並びにする */
+    gap: 15px;                /* ボタンとボタンの間に15pxの綺麗な隙間を作る */
+    z-index: 10;
+}
+
+.detail-page-wrapper {
+    display: flex;
+    flex-direction: column;   /* 縦一列に並べる */
+    align-items: center;      /* 💡 これでタイトルとカードが真ん中に揃います */
+    width: 100%;
+    padding-top: 100px;       /* 💡 左上のボタンと被らないように、少し上をあける */
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    font-family: 'Corporate Logo Rounded', 'コーポレート・ロゴ・丸', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+.detail-title {
+    color: #654321;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.breed-card {
+    background-color: rgba(255, 255, 255, 0.95); /* ほんのり透けるやわらかい白 */
+    border-radius: 20px;       /* 四角い角を丸くして可愛く */
+    width: 90%;
+    max-width: 450px;          /* ちょうどいい横幅に制限 */
+    box-shadow: 0 8px 24px rgba(101, 67, 33, 0.1); /* チョコブラウン系の優しい影 */
+    overflow: hidden;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* 5. 画像を丸っこく大きく見せる */
+.card-image-wrapper {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.breed-detail-img {
+    width: 160px;              /* 画像を少し大きめにして見やすく */
+    height: 160px;
+    object-fit: cover;         /* 画像が縦横に潰れないように綺麗にくり抜く */
+    border-radius: 50%;        /* 💡 完璧な「丸型」のアイコン風にします！ */
+    border: 4px solid #d2b48c; /* キャメル色の可愛いふちどり */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 6. IDや名前の各項目の並び（見やすさアップ！） */
+.info-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #e6dcd0; /* 可愛いドットの区切り線 */
+}
+.info-item:last-child {
+    border-bottom: none;       /* 一番最後の線の非表示 */
+}
+
+.info-label {
+    width: 100px;
+    font-size: 13px;
+    color: #b8976c;            /* カフェラテ色 */
+    background-color: #fffaf0; /* ラベルの背景をミルク色に */
+    padding: 4px 8px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 項目の右側（実際のデータテキスト） */
+.info-value {
+    flex: 1;
+    padding-left: 20px;
+    color: #4a3118;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 犬種名だけ特別に大きく目立たせる */
+.breed-name-item {
+    padding: 16px 0;
+}
+.name-value {
+    font-size: 20px;
+    color: #654321;            /* 濃いめのチョコブラウン */
+}
+
+/* 特徴・性格のテキスト（複数行になっても綺麗に見せる） */
+.feature-item {
+    flex-direction: column;    /* 特徴だけは文字が長いので上下に並べる */
+    align-items: flex-start;
+    gap: 10px;
+}
+.feature-value {
+    padding-left: 5px;
+    font-size: 15px;
+    line-height: 1.6;          /* 行間をあけて読みやすく */
+    font-weight: normal;       /* 本文はすっきり読みやすく */
+}
+
+
+
+
+
+input[type="submit"] {
+    background-color: #654321; /* 落ち着いたチョコブラウン */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #4a3118;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #7c5835;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #4a3118;
+}

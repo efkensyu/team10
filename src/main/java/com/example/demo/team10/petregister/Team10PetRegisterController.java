@@ -66,4 +66,5 @@ public class Team10PetRegisterController {
 		model.addAttribute("DataList", DataList);
 		return "team10/petregister/Team10PetRegisterOut";
 	}
+	
 }

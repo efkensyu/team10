@@ -60,4 +60,15 @@ public class Team10PetRegisterService {
 		// 作ったファイル名を返す
 		return fileName;
 	}
+	
+	public Team10PetRegister getPetById(int petId) {
+        Team10PetRegister pet = repository.findById(petId).orElse(null);
+        if (pet != null && pet.getBreedId() != null) {
+            Team10BreedList breed = breedRepository.getBreedByBreedId(pet.getBreedId());
+            if (breed != null) {
+                pet.setBreedName(breed.getBreedName());
+            }
+        }
+        return pet;
+    }
 }

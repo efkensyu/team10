@@ -1,17 +1,13 @@
 package com.example.demo.team10.petlist;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.team10.entity.Team10BreedList;
 import com.example.demo.team10.entity.Team10PetRegister;
 import com.example.demo.team10.repositories.Team10BreedListRepository;
 
@@ -37,31 +33,25 @@ public class Team10PetListController {
         return "/team10/petlist/Team10PetListDetails";
     }
 
-    @PostMapping("/team10/peteditor")
+    @PostMapping("/team10/peteditor/auth")
     public String editAuth(@RequestParam("petId") int petId,
                            @RequestParam("petPass") String petPass,
                            Model model) {
         Team10PetRegister pet = service.getPetById(petId);
-        if (pet == null || !pet.getPetPass().equals(petPass)) {
-            model.addAttribute("error", "パスワードが違います");
+
+        if (petPass == null || petPass.isEmpty()) {
             model.addAttribute("pet", pet);
+            model.addAttribute("passError", "パスワードを入力してください");
             return "/team10/petlist/Team10PetListDetails";
         }
-        List<Team10BreedList> breedList = breedRepository.findAll();
-        model.addAttribute("pet", pet);
-        model.addAttribute("breedList", breedList);
-        return "/team10/petlist/Team10Pet";
-    }
 
-    @PostMapping("/team10/peteditor")
-    public String edit(@ModelAttribute("pet") Team10PetRegister pet,
-                       @RequestParam("imageFile") MultipartFile imageFile,
-                       Model model) throws IOException {
-        if (!imageFile.isEmpty()) {
-            String fileName = service.saveImage(imageFile);
-            pet.setPetImage(fileName);
+        if (!pet.getPetPass().equals(petPass)) {
+            model.addAttribute("pet", pet);
+            model.addAttribute("passError", "パスワードが違います");
+            return "/team10/petlist/Team10PetListDetails";
         }
-        service.saveTeam10PetRegister(pet);
-        return "/team10/petlist/Team10PetList";
+
+        // OK → 編集画面へ
+        return "redirect:/team10/petlisteditor?petId=" + petId;
     }
 }
