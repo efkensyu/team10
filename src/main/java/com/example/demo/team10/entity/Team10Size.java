@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "size_tbl")
+@Table(name = "team10_size_tbl")
 @Data
 public class Team10Size {
 	@Id
