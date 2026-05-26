@@ -15,10 +15,6 @@
             </td>
         </tr>
         <tr>
-			<th>ペットID</th>
-			<td th:text="${pet.petId}"></td>
-		</tr>
-        <tr>
 			<th>ペット名</th>
 			<td th:text="${pet.petName}"></td>
 		</tr>
@@ -39,6 +35,11 @@
 			<td th:text="${pet.birthday != null} ? ${#temporals.format(pet.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
 		</tr>
     </table>
+	<form method="post" th:action="@{/team10/petlist/edit/auth}">
+	    <input type="hidden" name="petId" th:value="${pet.petId}"/>
+	    <input type="password" name="petPass" placeholder="パスワードを入力"/>
+	    <input type="submit" value="編集する"/>
+	</form>
 	<form method="get" th:action="@{/team10/petlist}">
 			<input type="submit" value="一覧に戻る"/>
 	</form>

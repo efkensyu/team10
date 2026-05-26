@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+    <meta charset="UTF-8">
+    <title>ペット編集画面</title>
+</head>
+<body>
+    <h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の編集|"></h1>
+
+    <form method="post" th:action="@{/team10/petlist/edit}" th:object="${pet}"
+          enctype="multipart/form-data">
+
+        <input type="hidden" th:field="*{petId}"/>
+        <input type="hidden" th:field="*{petPass}"/>
+        <input type="hidden" th:field="*{petImage}"/>
+
+        ペットの名前
+        <input type="text" th:field="*{petName}"/>
+        <br>
+        ペットの画像を変更
+        <input type="file" name="imageFile" accept="image/*"/>
+        <br>
+        犬種を選択
+        <select th:field="*{breedId}">
+            <option value="">未選択（雑種など）</option>
+            <option th:each="breed : ${breedList}" th:value="${breed.breedId}" th:text="${breed.breedName}"></option>
+        </select>
+        <br>
+        性別
+        <input type="radio" th:field="*{gender}" value="オス"/> オス
+        <input type="radio" th:field="*{gender}" value="メス"/> メス
+        <br>
+        誕生日
+        <input type="date" th:field="*{birthday}"/>
+        <br>
+        メモ<br>
+        <textarea th:field="*{memo}" rows="4" cols="40"></textarea>
+        <br>
+        <input type="submit" value="更新する"/>
+    </form>
+
+    <form method="post" th:action="@{/team10/petlist/details}">
+        <input type="hidden" name="petId" th:value="${pet.petId}"/>
+        <input type="submit" value="詳細に戻る"/>
+    </form>
+</body>
+</html>
