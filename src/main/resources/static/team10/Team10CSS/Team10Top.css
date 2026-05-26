@@ -12,11 +12,11 @@ body{
 p{
 	color:black;
 	text-align:center;
-	font-size:150%;	
+	font-size:14px;	
 }
 
 h1{
-	color:brown;
+	color:maroon;
 	text-align:center;
 	font-size:400%;
 }
@@ -61,4 +61,9 @@ h1{
     width: 100%;              /* 画面の横幅いっぱいに広げる */
     margin-top: 30px;         /* 上のコンテンツとの間に少し隙間を作る（お好みで） */
 }
+
+.setsumei{
+	color: #654321;
+}
+
 
