@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
-@Table(name = "pets_tbl")
+@Table(name = "team10_pets_tbl")
 @Data
 public class Team10PetRegister {	
 	@Id
