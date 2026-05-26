@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.olg">
 <head>
 <meta charset="UTF-8">
-<title>登録ペット一覧</title>
+<title>登録愛犬一覧</title>
 <link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetList.css">
 <link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
@@ -13,7 +13,7 @@
 	</form>
 	
 	<div class="pet-list-container">
-		<h1>🐾みんなのペット🐾</h1>
+		<h1>🐾みんなの愛犬🐾</h1>
 	<table>
 	    <th:block th:each="data : ${DataList}">
 	        <tr th:object="${data}">
@@ -25,7 +25,7 @@
 	            <td>
 	                <form method="post" th:action="@{/team10/petlist/details}">
 	                    <input type="hidden" name="petId" th:value="*{petId}"/>
-	                    <input type="submit" value="ペット詳細"/>
+	                    <input type="submit" value="愛犬詳細"/>
 	                </form>
 	            </td>
 	        </tr>

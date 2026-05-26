@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>ペット登録画面</title>
+	<title>愛犬登録画面</title>
 	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetRegisterIn.css">
 	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
@@ -15,16 +15,16 @@
 	
 	<div class="pet-register-container">
 
-	<h2 class="title">🐾ペットの情報を登録してね🐾</h2>
+	<h2 class="title">🐾愛犬の情報を登録してね🐾</h2>
 	
 	<form method="post" th:action="@{/team10/petregister}" th:object="${team10PetRegister}"
 		enctype="multipart/form-data">
 		<input type="hidden" th:field="*{petId}"/>
-		ペットの名前を入力
+		愛犬のお名前を入力
 		<input type="text" th:field="*{petName}" />
 		<span th:if="${#fields.hasErrors('petName')}" th:errors="*{petName}" style="color:red;"></span>
 		<br>
-		ペットの画像を選択
+		愛犬の画像を選択
 		<input type="file" name="imageFile" accept="image/*" />
 		<br>
 		犬種を選択
@@ -42,7 +42,7 @@
 		<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" style="color:red;"></span>
 		</div>
 		<br>
-		ペットの誕生日を入力
+		愛犬の誕生日を入力
 		<input type="date" th:field="*{birthday}" class="form-control-date">
 		<span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" style="color:red;"></span>
 		<br>
