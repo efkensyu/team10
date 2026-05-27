@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>犬種一覧</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedList.css">
-<link rel="icon" href="favicon.ico" sizes="64x64">
+	<meta charset="UTF-8">
+	<title>犬種一覧</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedList.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
+
 <body>
 	<form method="get" th:action="@{/team10/top}">
-	    <input type="submit" value="トップへ戻る" />
+		<input type="submit" value="トップへ戻る" />
 	</form>
-<div class="breed-list-container">
+	<div class="breed-list-container">
 
-<h2>犬種一覧表</h2>
-<table border="1">
-    <tr>
-        <th>画像</th>
-        <th>犬種</th>
-        <th>詳細</th>
-    </tr>
-    <tr th:each="breed:${breeds}">
-		<td>
-		    <img th:if="${breed.breedImage != null}"
-		         th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" 
-		         width="100" alt="犬種の画像">
-		         
-		    <span th:unless="${breed.breedImage != null}">画像なし</span>
-		</td>
-		
-        <td th:text="${breed.breedName}"></td>
-        <td>
-            <button type="button" th:onclick="|submitBreed(${breed.breedId})|">
-                詳細を見る
-            </button>
-        </td>
-    </tr>
-</table>
+		<div class="textbox1">
+			<div class="box-inner">
+				<h2>犬種一覧表</h2>
+			</div>
+		</div>
+		<table border="1">
+			<tr>
+				<th>画像</th>
+				<th>犬種</th>
+				<th>詳細</th>
+			</tr>
+			<tr th:each="breed:${breeds}">
+				<td>
+					<img th:if="${breed.breedImage != null}"
+						th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" width="100"
+						alt="犬種の画像">
 
-<!-- テーブルの外にフォームを1つだけ置く -->
-<form id="breedDetailForm" method="post" th:action="@{/team10/breedlist/details}">
-    <input type="hidden" id="breedIdInput" name="breedId" value="" />
-    <input type="hidden" name="breedlistdetails" value="詳細を見る" />
-</form>
+					<span th:unless="${breed.breedImage != null}">画像なし</span>
+				</td>
+
+				<td th:text="${breed.breedName}"></td>
+				<td>
+					<button type="button" th:onclick="|submitBreed(${breed.breedId})|">
+						詳細を見る
+					</button>
+				</td>
+			</tr>
+		</table>
+
+		<!-- テーブルの外にフォームを1つだけ置く -->
+		<form id="breedDetailForm" method="post" th:action="@{/team10/breedlist/details}">
+			<input type="hidden" id="breedIdInput" name="breedId" value="" />
+			<input type="hidden" name="breedlistdetails" value="詳細を見る" />
+		</form>
 
 
-<script>
-function submitBreed(breedId) {
-    document.getElementById('breedIdInput').value = breedId;
-    document.getElementById('breedDetailForm').submit();
-}
-</script>
+		<script>
+			function submitBreed(breedId) {
+				document.getElementById('breedIdInput').value = breedId;
+				document.getElementById('breedDetailForm').submit();
+			}
+		</script>
 
-</div>
+	</div>
 </body>
+
 </html>

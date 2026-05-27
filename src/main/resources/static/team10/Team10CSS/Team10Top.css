@@ -1,12 +1,11 @@
 body{
     background-color:burlywood;
 	
-	background-image: url("../Team10images/nikukyu_brown_left.png"),
-	        url("../Team10images/nikukyu_brown_right.png");
-	background-size: 200px 200px;
+	background-image: url("../Team10images/nikukyu_back_left.png"),
+	        url("../Team10images/nikukyu_back.png");
+	background-size: 90px 150px;
 	background-repeat: no-repeat;
-	background-position: 100px 50px, right 100px top 500px;
-	
+	background-position: 70px 50px, right 100px top 500px;
 }
 
 p{
@@ -65,5 +64,75 @@ h1{
 .setsumei{
 	color: #654321;
 }
+
+/* いぬBOX A*/
+.inu-box-a {
+ position: relative;
+ margin: 3em auto;
+ padding: 20px 50px 20px;
+ width: 50%; /* ボックス幅 */
+ background: #F6E3AE; /* ボックス背景色 */
+ color: #333333; /* 文字色 */
+ font-weight: bold; /* テキスト太字（不要なら行を削除） */
+ font-size: 28px;
+ text-align: center; /* テキスト中央（不要なら行を削除） */
+ border: 5px solid #666666; /* ボックス枠線(太さ・線種・色)*/
+ border-radius: 50px;
+}
+.inu-box-a::before, 
+.inu-box-a::after {
+ height: 4.5em;
+ width: 2.5em;
+ position: absolute;
+ content:'';
+ top: -15px;
+}
+.inu-box-a::before { 
+ left: -2%;
+ background: #C07C3E; /* 左耳背景色 */
+ border: 5px solid #666666; /* 左耳枠線(太さ・線種・色) */
+ border-radius: 100px 50px;
+ transform: rotate( 30deg );
+}
+.inu-box-a::after {
+ right: -2%;
+ background: #C07C3E; /* 右耳背景色 */
+ border: 5px solid #666; /* 右耳枠線(太さ・線種・色) */
+ border-radius: 50px 100px;
+ transform: rotate( -30deg );
+}
+
+/* 枠 */
+.textbox1 {
+    margin: 2em auto;
+    padding: 30px;
+    width: 55%; /* ボックス幅 */
+    background-color: #ffffff; /* 白背景 */
+    border: 4px solid #F6E3AE; /* 薄黄色の枠線 */
+    border-radius: 30px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* ほんのり影 */
+    text-align: center;
+}
+
+.box-inner {
+    display: inline-block;
+    text-align: left; /* 中の文章は左揃えにして読みやすく */
+
+	background-image:url(../Team10images/nikukyu_brown_left.png),
+	url(../Team10images/nikukyu_brown_right.png); /* 背景画像 */
+	
+	/* 2. 画像を繰り返さない設定 */
+	background-repeat: no-repeat, no-repeat;
+	    
+	/* 3. 左上（left top）と 右下（right bottom）にそれぞれ配置 */
+	background-position: left top, right bottom;
+	    
+	/* 4. 肉球画像が文字と被らないように、小さめのサイズ（例: 40px）に指定 */
+	background-size: 40px 40px, 40px 40px;
+	    
+	/* 5. 文字が肉球の上に重ならないように、文字の周りに少し内側の余白（padding）を作る */
+	padding: 20px 50px;	
+}
+
 
 
