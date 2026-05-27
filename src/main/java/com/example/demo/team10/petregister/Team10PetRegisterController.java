@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,7 +43,7 @@ public class Team10PetRegisterController {
         });
     }
 
-    @GetMapping("/team10/petregister")
+    @PostMapping("/team10/petregisterIn")
     public String index(Model model) {
         List<Team10BreedList> breedList = breedRepository.findAll();
         model.addAttribute("breedList", breedList);
@@ -55,7 +54,7 @@ public class Team10PetRegisterController {
         return "team10/petregister/Team10PetRegisterIn";
     }
 
-    @PostMapping("/team10/petregister")
+    @PostMapping("/team10/petregisterOut")
     public String register(
             @Validated @ModelAttribute("team10PetRegister") Team10PetRegister pet,
             BindingResult result,

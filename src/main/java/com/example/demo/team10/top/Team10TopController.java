@@ -50,18 +50,17 @@ public class Team10TopController {
 	</form>*/
 	
 	
-	//登録ボタンの処理
-	@PostMapping(value="/team10/petregister",params="petregister")
-	public String send2(Model model) {
-		return "team10/petregister/Team10PetRegisterIn";
-	}
-	
-	//ペット一覧ボタンの処理
-
-	@PostMapping(value="/team10/petlist",params="petlist")
-	public String send3(Model model) {
-		return "team10/petlist/Team10PetList";
-	}
+//	//登録ボタンの処理
+//	@PostMapping(value="/team10/petregister",params="petregister")
+//	public String send2(Model model) {
+//		return "team10/petregister/Team10PetRegisterIn";
+//	}
+//	
+//	//ペット一覧ボタンの処理
+//	@PostMapping(value="/team10/petlist",params="petlist")
+//	public String send3(Model model) {
+//		return "team10/petlist/Team10PetList";
+//	}
 
 	/*@GetMapping(value="/team10/petlist",params="petlist")
 	public String send3(Model model) {
