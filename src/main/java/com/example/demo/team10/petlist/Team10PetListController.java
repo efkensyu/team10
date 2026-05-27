@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +19,7 @@ public class Team10PetListController {
     private final Team10PetListService service;
     private final Team10BreedListRepository breedRepository;
 
-    @PostMapping("/team10/petlist")
+    @GetMapping("/team10/petlist")
     public String list(Model model) {
         List<Team10PetRegister> DataList = service.getAllTeam10PetRegister();
         model.addAttribute("DataList", DataList);
