@@ -1,12 +1,11 @@
 body{
     background-color:burlywood;
 	
-	background-image: url("../Team10images/nikukyu_brown_left.png"),
-	        url("../Team10images/nikukyu_brown_right.png");
-	background-size: 200px 200px;
+	background-image: url("../Team10images/nikukyu_back_left.png"),
+	        url("../Team10images/nikukyu_back.png");
+	background-size: 90px 150px;
 	background-repeat: no-repeat;
-	background-position: 100px 50px, right 100px top 500px;
-	
+	background-position: 70px 50px, right 100px top 500px;
 }
 
 h2 {
@@ -26,8 +25,6 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: #d2b48c; /* キャメル色 */
-    border-radius: 2px;
 }
 
 /* 3. テーブル（表）を丸みのあるメニュー表風にする */
@@ -123,5 +120,37 @@ input[type="submit"]:hover {
     align-items: center;      /* 💡 これでタイトル、表、ボタンがすべて完全に真ん中に揃います */
     justify-content: center;
     width: 100%;              /* 画面の横幅いっぱいに広げる */
-    padding: 40px 0;          /* 上下に少し心地よい余白を作る */
+    padding: 20px 0;          /* 上下に少し心地よい余白を作る */
+}
+
+/* 枠 */
+.textbox1 {
+    margin: 1em auto;
+    padding: 5px;
+    width: 50%; /* ボックス幅 */
+    background-color: #ffffff; /* 白背景 */
+    border: 3px solid #F6E3AE; /* 薄黄色の枠線 */
+    border-radius: 30px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* ほんのり影 */
+    text-align: center;
+}
+
+.box-inner {
+    display: inline-block;
+    text-align: left; /* 中の文章は左揃えにして読みやすく */
+
+	background-image:url(../Team10images/nikukyu_brown_left.png),
+	url(../Team10images/nikukyu_brown_right.png); /* 背景画像 */
+	
+	/* 2. 画像を繰り返さない設定 */
+	background-repeat: no-repeat, no-repeat;
+	    
+	/* 3. 左上（left top）と 右下（right bottom）にそれぞれ配置 */
+	background-position: left top, right bottom;
+	    
+	/* 4. 肉球画像が文字と被らないように、小さめのサイズ（例: 40px）に指定 */
+	background-size: 25px 25px, 25px 25px;
+	    
+	/* 5. 文字が肉球の上に重ならないように、文字の周りに少し内側の余白（padding）を作る */
+	padding: 5px 50px;	
 }

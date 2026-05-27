@@ -4,34 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>みんなのワンコ自慢</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10Top.css">
-<link rel="icon" href="favicon.ico" sizes="64x64">
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10Top.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 
 <body>
-	<h1>みんなのワンコ自慢</h1>
-	
-	<p class="setsumei">「みんなのワンコ自慢」はかわいい愛犬を自慢できるサイトです🐾</p>
-	<p class="setsumei">かわいいワンちゃんたちに癒されてください♪</p>
-	
+	<div class="inu-box-a">・ᴥ・<br>みんなのワンコ自慢</div>
+
+	<div class="textbox1">
+		<div class="box-inner">
+			<p class="setsumei">「みんなのワンコ自慢」はかわいい愛犬を自慢できるサイトです🐾</p>
+			<p class="setsumei">かわいいワンちゃんたちに癒されてください♪</p>
+		</div>
+	</div>
+
 	<br>
 	<p>メニューを選択してください</p>
-	
-<div class="btn-container">
-	<form method="post" th:action="@{/team10/breedlist}">
-		<input type="submit" name="breedlist" value="犬種一覧" class="kawaii-btn"/>
-	</form>
-	<br>
-	
-	<form method="get" th:action="@{/team10/petregister}">
-		<input type="submit" name="petregister" value="愛犬登録" class="kawaii-btn"/>
-	</form>
-	<br>
-	<form method="get" th:action="@{/team10/petlist}">
-		<input type="submit" name="petlist" value="愛犬一覧" class="kawaii-btn"/>
 
-	</form>
-</div>
+	<div class="btn-container">
+		<form method="post" th:action="@{/team10/breedlist}">
+			<input type="submit" name="breedlist" value="犬種一覧" class="kawaii-btn" />
+		</form>
+		<br>
+
+		<form method="get" th:action="@{/team10/petregister}">
+			<input type="submit" name="petregister" value="愛犬登録" class="kawaii-btn" />
+		</form>
+		<br>
+		<form method="get" th:action="@{/team10/petlist}">
+			<input type="submit" name="petlist" value="愛犬一覧" class="kawaii-btn" />
+
+		</form>
+	</div>
 	<br>
 </body>
 
