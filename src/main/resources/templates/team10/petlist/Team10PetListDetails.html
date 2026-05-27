@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>愛犬の詳細</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetDetails.css">
 
-<link rel="icon" href="../favicon.ico" sizes="64x64">
+<head>
+	<meta charset="UTF-8">
+	<title>愛犬の詳細</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetDetails.css">
+
+	<link rel="icon" href="../favicon.ico" sizes="64x64">
 </head>
+
 <body>
-	
+
 	<div class="top-buttons-container">
 		<form method="get" th:action="@{/team10/top}">
-			<input type="submit" value="トップに戻る"/>
+			<input type="submit" value="トップに戻る" />
 		</form>
 		<form method="get" th:action="@{/team10/petlist}">
-			<input type="submit" value="一覧に戻る"/>
+			<input type="submit" value="一覧に戻る" />
 		</form>
 	</div>
-		
-	<h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
-	
-	<div class="petlistdetail-container">	
+	<h2></h2>
+	<div class="textbox1">
+		<div class="box-inner">
+			<h1 th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の詳細|"></h1>
+		</div>
+	</div>
+	<div class="petlistdetail-container">
 		<table>
-	        <tr>
+			<tr>
 				<th>画像</th>
-	            <td>
-	                <img th:if="${pet.petImage}" th:src="@{/team10/petimages/{name}(name=${pet.petImage})}" alt="ペットの画像"/>
-	                <span th:unless="${pet.petImage}">画像なし</span>
-	            </td>
-	        </tr>
-	        <tr>
+				<td>
+					<img th:if="${pet.petImage}" th:src="@{/team10/petimages/{name}(name=${pet.petImage})}"
+						alt="ペットの画像" />
+					<span th:unless="${pet.petImage}">画像なし</span>
+				</td>
+			</tr>
+			<tr>
 				<th>愛犬のお名前</th>
 				<td th:text="${pet.petName}"></td>
 			</tr>
-	        <tr>
+			<tr>
 				<th>性別</th>
 				<td th:text="${pet.gender}"></td>
 			</tr>
-	        <tr>
+			<tr>
 				<th>犬種</th>
 				<td th:text="${pet.breedName}"></td>
 			</tr>
-	        <tr>
+			<tr>
 				<th>メモ</th>
 				<td th:text="${pet.memo}"></td>
 			</tr>
-	        <tr>
+			<tr>
 				<th>誕生日</th>
 				<td th:text="${pet.birthday != null} ? ${#temporals.format(pet.birthday, 'yyyy/MM/dd')} : '未登録'"></td>
 			</tr>
-	    </table>
+		</table>
 
-	
+
 		<form method="post" th:action="@{/team10/peteditor/auth}">
-	    <input type="hidden" name="petId" th:value="${pet.petId}"/>
-	    <input type="password" name="petPass" placeholder="編集用パスワードを入力"/>
-	    <span th:if="${passError}" th:text="${passError}" style="color: red;"></span><br>
-		
-		<div class="auth-btn-group">
-	    <input type="submit" name="action" value="編集する"/>
-	    <input type="submit" name="action" value="削除する"/>
-		</div>
-		
-	</form>
+			<input type="hidden" name="petId" th:value="${pet.petId}" />
+			<input type="password" name="petPass" placeholder="編集用パスワードを入力" />
+			<span th:if="${passError}" th:text="${passError}" style="color: red;"></span><br>
+
+			<div class="auth-btn-group">
+				<input type="submit" name="action" value="編集する" />
+				<input type="submit" name="action" value="削除する" />
+			</div>
+
+		</form>
 
 	</div>
 
 </body>
+
 </html>

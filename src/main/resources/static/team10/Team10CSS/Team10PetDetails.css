@@ -9,9 +9,9 @@ body {
     font-family: 'Corporate Logo Rounded', 'コーポレート・ロゴ・丸', 'Hiragino Maru Gothic ProN', sans-serif;
     background-color: burlywood;
         
-    background-image: url("../Team10images/nikukyu_brown_left.png"),
-                      url("../Team10images/nikukyu_brown_right.png");
-    background-size: 200px 200px;
+	background-image: url("../Team10images/nikukyu_back_left.png"),
+		        url("../Team10images/nikukyu_back.png");
+    background-size: 90px 150px;
     background-repeat: no-repeat;
     background-position: 100px 50px, right 100px top 500px;
 }
@@ -52,9 +52,12 @@ input[type="submit"]:hover {
 h1 {
     font-size: 34px;
     color: #654321;            /* 暖かみのあるオレンジ・ピンク系 */
-    margin-top: 100px;         /* 💡 左上のボタンを避けるために100pxあける */
     margin-bottom: 30px;
     text-align: center;
+}
+
+h2{
+	margin-top: 50px;         /* 💡 左上のボタンを避けるために100pxあける */
 }
 
 /* --- テーブルを包むコンテナ --- */
@@ -124,3 +127,72 @@ td span {
     display: flex;             /* 2つのボタンを横並びにする */
     gap: 15px;                 /* ボタンとボタンの間の隙間 */
 }
+
+/* --- パスワード入力エリアのスタイル --- */
+input[type="password"][name="petPass"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    margin: 15px 0 5px 0;
+    font-size: 15px;
+    font-family: inherit;
+    color: #5d5043;             /* 他のテキストと同じ濃いめのブラウン */
+    background-color: #fcf8f2;  /* 画像のフチと同じ優しい生成り色 */
+    border: 2px solid #e0d0c0;  /* 馴染みの良い薄いブラウンの線 */
+    border-radius: 10px;        /* 画面に合わせた優しい角丸 */
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 入力欄にフォーカスが当たったときの動き */
+input[type="password"][name="petPass"]:focus {
+    border-color: #8d7967;      /* 見出し（th）と同じナチュラルフレンチなブラウンに */
+    background-color: #ffffff;  /* フォーカス時は白背景にして入力しやすく */
+}
+
+/* プレースホルダー（編集用パスワードを入力）の文字色 */
+input[type="password"][name="petPass"]::placeholder {
+    color: #b5a494;             /* 「画像なし」と同じニュアンスカラー */
+    font-size: 14px;
+}
+
+/* 枠 */
+.textbox1 {
+	margin: 1em auto;
+	padding: 5px;
+	width: 50%;
+	/* ボックス幅 */
+	background-color: #ffffff;
+	/* 白背景 */
+	border: 3px solid #F6E3AE;
+	/* 薄黄色の枠線 */
+	border-radius: 30px;
+	/* 角丸 */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	/* ほんのり影 */
+	text-align: center;
+}
+
+.box-inner {
+	display: inline-block;
+	text-align: left;
+	/* 中の文章は左揃えにして読みやすく */
+
+	background-image: url(../Team10images/nikukyu_brown_left.png),
+		url(../Team10images/nikukyu_brown_right.png);
+	/* 背景画像 */
+
+	/* 2. 画像を繰り返さない設定 */
+	background-repeat: no-repeat, no-repeat;
+
+	/* 3. 左上（left top）と 右下（right bottom）にそれぞれ配置 */
+	background-position: left top, right bottom;
+
+	/* 4. 肉球画像が文字と被らないように、小さめのサイズ（例: 40px）に指定 */
+	background-size: 25px 25px, 25px 25px;
+
+	/* 5. 文字が肉球の上に重ならないように、文字の周りに少し内側の余白（padding）を作る */
+	padding: 5px 50px;
+}
+
+

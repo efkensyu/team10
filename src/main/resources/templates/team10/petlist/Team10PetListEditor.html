@@ -2,74 +2,80 @@
 <html xmlns:th="http://www.thymeleaf.ofg">
 
 <head>
-    <meta charset="UTF-8">
-    <title>愛犬編集画面</title>
-    <link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetListEditor.css">
-    <link rel="icon" href="favicon.ico" sizes="64x64">
+	<meta charset="UTF-8">
+	<title>愛犬編集画面</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetListEditor.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
 
 <body>
+	<div class="textbox1">
+		<div class="box-inner">
+			<h1 class="name" th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の編集|"></h1>
+		</div>
+	</div>
+	<div class="petlist-editor-container">
 
-    <h1 class="name" th:text="|${pet.petName}${pet.gender == 'オス' ? 'くん' : 'ちゃん'}の編集|"></h1>
+		<div class="form-card">
 
-    <div class="petlist-editor-container">
+			<form method="post" th:action="@{/team10/petlisteditor}" th:object="${pet}" enctype="multipart/form-data">
 
-        <div class="form-card">
-            
-            <form method="post" th:action="@{/team10/petlisteditor}" th:object="${pet}" enctype="multipart/form-data">
+				<input type="hidden" th:field="*{petId}" />
 
-                <input type="hidden" th:field="*{petId}"/>
+				<div class="radio-section">
+					画像の選択
+					<div class="radio-group">
+						<label><input type="radio" name="imageOption" value="keep" checked
+								onclick="document.getElementById('newImageArea').style.display='none'" />
+							同じ画像を使う</label>
+						<br>
+						<label><input type="radio" name="imageOption" value="new"
+								onclick="document.getElementById('newImageArea').style.display='block'" />
+							新しい画像を登録する</label>
+					</div>
+				</div>
 
-                <div class="radio-section">
-                    画像の選択
-                    <div class="radio-group">
-                        <label><input type="radio" name="imageOption" value="keep" checked
-                               onclick="document.getElementById('newImageArea').style.display='none'"/> 同じ画像を使う</label>
-                        <br>
-                        <label><input type="radio" name="imageOption" value="new"
-                               onclick="document.getElementById('newImageArea').style.display='block'"/> 新しい画像を登録する</label>
-                    </div>
-                </div>
-                
-                <div id="newImageArea" style="display:none;">
-                    <input type="file" name="imageFile" accept="image/*"/>
-                </div>
-                <input type="hidden" th:field="*{petImage}"/>
+				<div id="newImageArea" style="display:none;">
+					<input type="file" name="imageFile" accept="image/*" />
+				</div>
+				<input type="hidden" th:field="*{petImage}" />
 
-                愛犬のお名前
-                <input type="text" th:field="*{petName}"/>
+				愛犬のお名前
+				<input type="text" th:field="*{petName}" />
 
-                犬種を選択
-                <select th:field="*{breedId}">
-                    <option value="">未選択（雑種など）</option>
-                    <option th:each="breed : ${breedList}" th:value="${breed.breedId}" th:text="${breed.breedName}"></option>
-                </select>
+				犬種を選択
+				<select th:field="*{breedId}">
+					<option value="">未選択（雑種など）</option>
+					<option th:each="breed : ${breedList}" th:value="${breed.breedId}" th:text="${breed.breedName}">
+					</option>
+				</select>
 
-                性別
-                <div class="radio-group">
-                    <label><input type="radio" th:field="*{gender}" value="オス"/> オス</label>
-                    <label><input type="radio" th:field="*{gender}" value="メス"/> メス</label>
-                </div>
+				性別
+				<div class="radio-group">
+					<label><input type="radio" th:field="*{gender}" value="オス" /> オス</label>
+					<label><input type="radio" th:field="*{gender}" value="メス" /> メス</label>
+				</div>
 
-                誕生日
-                <input type="date" th:field="*{birthday}" class="form-control-date"/>
+				誕生日
+				<input type="date" th:field="*{birthday}" class="form-control-date" />
 
-                メモ
-                <textarea th:field="*{memo}" rows="4" cols="40"></textarea>
+				メモ
+				<textarea th:field="*{memo}" rows="4" cols="40"></textarea>
 
-                <div class="btn-group">
-                    <input type="submit" value="更新する" class="submit-btn"/>
-                </div>
-            </form>
+				<div class="btn-group">
+					<input type="submit" value="更新する" class="submit-btn" />
+				</div>
+			</form>
 
-            <form method="post" th:action="@{/team10/petlist/details}" class="btn-group-secondary">
-                <input type="hidden" name="petId" th:value="${pet.petId}"/>
-                <input type="submit" value="詳細に戻る" class="return-btn"/>
-            </form>
-            
-        </div>
+			<form method="post" th:action="@{/team10/petlist/details}" class="btn-group-secondary">
+				<input type="hidden" name="petId" th:value="${pet.petId}" />
+				<input type="submit" value="詳細に戻る" class="return-btn" />
+			</form>
 
-    </div>
+		</div>
+
+	</div>
 
 </body>
+
 </html>

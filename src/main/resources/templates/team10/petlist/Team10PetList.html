@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.olg">
+
 <head>
-<meta charset="UTF-8">
-<title>登録愛犬一覧</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetList.css">
-<link rel="icon" href="favicon.ico" sizes="64x64">
+	<meta charset="UTF-8">
+	<title>登録愛犬一覧</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10PetList.css">
+	<link rel="icon" href="favicon.ico" sizes="64x64">
 </head>
+
 <body>
-	
+
 	<form method="get" th:action="@{/team10/top}">
-		<input type="submit" value="トップに戻る"/>
+		<input type="submit" value="トップに戻る" />
 	</form>
-	
+
 	<div class="pet-list-container">
-		<h1>🐾みんなの愛犬🐾</h1>
-	<table>
-	    <th:block th:each="data : ${DataList}">
-	        <tr th:object="${data}">
-	            <td>
-	                <img th:if="*{petImage}" th:src="@{/team10/petimages/{name}(name=*{petImage})}" width="200" alt="ペットの画像" />
-	                <span th:unless="*{petImage}">画像なし</span>
-	            </td>
-	            <td th:text="*{petName}"></td>
-	            <td>
-	                <form method="post" th:action="@{/team10/petlist/details}">
-	                    <input type="hidden" name="petId" th:value="*{petId}"/>
-	                    <input type="submit" value="愛犬詳細"/>
-	                </form>
-	            </td>
-	        </tr>
-	    </th:block>
-	</table>
-</div>
+		<div class="textbox1">
+			<div class="box-inner">
+				<h1>みんなの愛犬</h1>
+			</div>
+		</div>
+
+		<table>
+			<th:block th:each="data : ${DataList}">
+				<tr th:object="${data}">
+					<td>
+						<img th:if="*{petImage}" th:src="@{/team10/petimages/{name}(name=*{petImage})}" width="200"
+							alt="ペットの画像" />
+						<span th:unless="*{petImage}">画像なし</span>
+					</td>
+					<td th:text="*{petName}"></td>
+					<td>
+						<form method="post" th:action="@{/team10/petlist/details}">
+							<input type="hidden" name="petId" th:value="*{petId}" />
+							<input type="submit" value="愛犬詳細" />
+						</form>
+					</td>
+				</tr>
+			</th:block>
+		</table>
+	</div>
 </body>
+
 </html>
