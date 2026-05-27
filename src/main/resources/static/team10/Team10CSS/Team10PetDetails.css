@@ -54,8 +54,17 @@ input[type="submit"]:hover {
 	display: flex;             /* 💡 中にあるフォームを横並びにするおまじない */
 	gap: 10px;
 	
-	}
+}
 
+	.detail-page-wrapper {
+	    display: flex;
+	    flex-direction: column;   /* 縦一列に並べる */
+	    align-items: center;      /* 💡 これでタイトルもテーブルも真ん中に揃う */
+	    width: 100%;
+	    padding-top: 100px;       /* 💡 ボタンの横一列のスペースを、ここで強制的に確保！ */
+	    box-sizing: border-box;
+	}
+	
 /* --- タイトル（h1）のデザイン --- */
 h1 {
     font-size: 34px;
@@ -72,6 +81,7 @@ h1 {
     background-color: #ffffff; /* カード風に見せるための白背景 */
     border-radius: 20px;      /* 角を丸くして可愛く */
     padding: 20px;
+	padding-top: 200px;
     box-shadow: 0 4px 15px rgba(238, 143, 109, 0.15); /* ほんのりピンクがかった優しい影 */
     box-sizing: border-box;
 }
