@@ -1,20 +1,19 @@
 body {
     display: flex;
     flex-direction: column;   /* 上から順に縦に並べる */
-    align-items: center;      /* 💡 これでタイトルもテーブルもすべて画面の真ん中に揃います */
+    align-items: center;      /* タイトルもテーブルもすべて画面の真ん中に揃います */
     width: 100%;
     margin: 0;
     padding-bottom: 50px;
     box-sizing: border-box;
     font-family: 'Corporate Logo Rounded', 'コーポレート・ロゴ・丸', 'Hiragino Maru Gothic ProN', sans-serif;
-	background-color:burlywood;
-		
-	background-image: url("../Team10images/nikukyu_brown_left.png"),
-		        url("../Team10images/nikukyu_brown_right.png");
-	background-size: 200px 200px;
-	background-repeat: no-repeat;
-	background-position: 100px 50px, right 100px top 500px;
-		
+    background-color: burlywood;
+        
+    background-image: url("../Team10images/nikukyu_brown_left.png"),
+                      url("../Team10images/nikukyu_brown_right.png");
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: 100px 50px, right 100px top 500px;
 }
 
 input[type="submit"] {
@@ -22,22 +21,16 @@ input[type="submit"] {
     color: white;
     border: none;
     
-    /* 💡 ボタンの大きさをアップ！横幅をしっかり確保します */
-    padding: 12px 30px;        /* 上下の厚みと左右の幅を広げました（元は12px 30px） */
-    font-size: 15px;           /* 文字も一回り大きくして視認性アップ！（元は15px） */
+    /* ボタンの大きさ */
+    padding: 12px 30px;
+    font-size: 15px;
     
     font-weight: bold;
     font-family: inherit;
-    border-radius: 30px;       /* 💡 大きさに合わせて角丸の具合も少しふっくら調整 */
+    border-radius: 30px;       /* 大きさに合わせて角丸の具合も少しふっくら調整 */
     cursor: pointer;
-    box-shadow: 0 4px 0 #4a3118; /* 💡 立体感（影）も少し厚くしました */
+    box-shadow: 0 4px 0 #4a3118; /* 立体感（影） */
     transition: all 0.2s;
-}
-
-.top-buttons-container {
-    position: absolute;       /* 💡 画面の左上に強制固定します */
-    top: 1px;
-    left: 20px;
 }
 
 input[type="submit"]:hover {
@@ -45,31 +38,21 @@ input[type="submit"]:hover {
     box-shadow: 0 2px 0 #4a3118;
 }
 
-/* 💡 【重要】上部ボタンの配置：競合をスッキリまとめました */
+/* 💡 ボタンを左上に完全固定する設定 */
 .top-buttons-container {
-    position: absolute;        /* 画面の左上に強制固定 */
-    top: 20px;                 /* 💡 1pxだと上に張り付きすぎるので、少し下げて他の画面と揃いやすく */
-    left: 20px;
-    z-index: 10;               /* 他の要素の下に隠れないようにお守り */
-	display: flex;             /* 💡 中にあるフォームを横並びにするおまじない */
-	gap: 10px;
-	
+    position: absolute;       /* 画面に対して絶対位置で固定 */
+    top: 20px;                /* 画面の上から20px */
+    left: 20px;               /* 画面の左から20px */
+    display: flex;             /* 中にあるフォームを横並びにする */
+    gap: 10px;
+    z-index: 10;
 }
 
-	.detail-page-wrapper {
-	    display: flex;
-	    flex-direction: column;   /* 縦一列に並べる */
-	    align-items: center;      /* 💡 これでタイトルもテーブルも真ん中に揃う */
-	    width: 100%;
-	    padding-top: 100px;       /* 💡 ボタンの横一列のスペースを、ここで強制的に確保！ */
-	    box-sizing: border-box;
-	}
-	
 /* --- タイトル（h1）のデザイン --- */
 h1 {
     font-size: 34px;
-    color:#654321;           /* 暖かみのあるオレンジ・ピンク系 */
-    margin-top: 30px;
+    color: #654321;            /* 暖かみのあるオレンジ・ピンク系 */
+    margin-top: 100px;         /* 💡 左上のボタンを避けるために100pxあける */
     margin-bottom: 30px;
     text-align: center;
 }
@@ -81,7 +64,6 @@ h1 {
     background-color: #ffffff; /* カード風に見せるための白背景 */
     border-radius: 20px;      /* 角を丸くして可愛く */
     padding: 20px;
-	padding-top: 200px;
     box-shadow: 0 4px 15px rgba(238, 143, 109, 0.15); /* ほんのりピンクがかった優しい影 */
     box-sizing: border-box;
 }
@@ -102,7 +84,7 @@ th, td {
 /* --- 左側の見出し（th） --- */
 th {
     width: 30%;               /* 項目の幅を固定 */
-    text-align: center;        /* テキストを右寄せにしてコロンっぽく見せる */
+    text-align: center;       /* テキストを中央寄せ */
     color: #8d7967;           /* ナチュラルフレンチなブラウン */
     font-weight: bold;
     font-size: 15px;
@@ -112,32 +94,33 @@ th {
 /* --- 右側のデータ（td） --- */
 td {
     text-align: left;         /* 内容は左寄せ */
-    color: #5d5043;           /* 濃いめのブラウン（黒より優しい印象になります） */
+    color: #5d5043;           /* 濃いめのブラウン */
     font-size: 15px;
     padding-left: 25px;       /* 点線からの余白 */
 }
 
 /* --- ペット画像 --- */
 td img {
-    /* 👇 画像のサイズ設定を調整（width="200"をCSSで上書き） */
-    width: 300px;             /* 横幅を200pxから300pxに大きく */
+    width: 300px;             /* 横幅を300pxに大きく */
     height: 300px;            /* 縦幅を固定（正方形） */
-    object-fit: cover;        /* 💡 縦横比が崩れないように、画像をトリミングして収める */
+    object-fit: cover;        /* 縦横比が崩れないように画像をトリミング */
     
-    border-radius: 16px;      /* 💡 画像が大きくなったので、角丸も少し緩やかに調整 */
-    border: 4px solid #fcf8f2; /* 💡 フチも少し太くして存在感を出す */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 💡 影も少し強く */
+    border-radius: 16px;      /* 角丸を少し緩やかに調整 */
+    border: 4px solid #fcf8f2; /* フチを少し太くして存在感を出す */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 影も少し強く */
     display: block;           /* 下部の謎の隙間を消す */
-    margin: 0 auto;           /* 💡 枠の中で中央に寄せる */
+    margin: 0 auto;           /* 枠の中で中央に寄せる */
 }
+
 /* --- 「画像なし」の文字 --- */
 td span {
     color: #b5a494;
     font-style: italic;
 }
 
+/* --- 編集・削除ボタンのグループ --- */
 .auth-btn-group {
-    margin-top: 20px;          /* 💡 パスワード入力欄から「少し下に下げる」指定 */
+    margin-top: 20px;          /* パスワード入力欄から少し下に下げる */
     display: flex;             /* 2つのボタンを横並びにする */
     gap: 15px;                 /* ボタンとボタンの間の隙間 */
 }
