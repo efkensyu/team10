@@ -22,14 +22,14 @@ public class Team10PetListController {
     public String list(Model model) {
         List<Team10PetRegister> DataList = service.getAllTeam10PetRegister();
         model.addAttribute("DataList", DataList);
-        return "/team10/petlist/Team10PetList";
+        return "team10/petlist/Team10PetList";
     }
 
     @PostMapping("/team10/petlist/details")
     public String details(@RequestParam("petId") int petId, Model model) {
         Team10PetRegister pet = service.getPetById(petId);
         model.addAttribute("pet", pet);
-        return "/team10/petlist/Team10PetListDetails";
+        return "team10/petlist/Team10PetListDetails";
     }
 
     @PostMapping("/team10/peteditor/auth")
@@ -43,14 +43,14 @@ public class Team10PetListController {
         if (petPass == null || petPass.isEmpty()) {
             model.addAttribute("pet", pet);
             model.addAttribute("passError", "パスワードを入力してください");
-            return "/team10/petlist/Team10PetListDetails";
+            return "team10/petlist/Team10PetListDetails";
         }
 
         //パスワード合ってるか確認
         if (!pet.getPetPass().equals(petPass)) {
             model.addAttribute("pet", pet);
             model.addAttribute("passError", "パスワードが違います");
-            return "/team10/petlist/Team10PetListDetails";
+            return "team10/petlist/Team10PetListDetails";
         }
 
         // 削除
