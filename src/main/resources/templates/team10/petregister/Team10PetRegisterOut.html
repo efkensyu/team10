@@ -10,21 +10,25 @@
 
 <body>
 	<div class="button-group">
-	<form method="get" th:action="@{/team10/top}">
+		<form method="get" th:action="@{/team10/top}">
 			<input type="submit" value="トップへ戻る" />
 		</form>
 		<form method="get" th:action="@{/team10/petlist}">
-			<input type="submit" name="petlist" value="ペット一覧へ"/>
+			<input type="submit" name="petlist" value="ペット一覧へ" />
 		</form>
 	</div>
-	
-	<div class="pet-registerout-container">
-	
-	<h1>🐾登録が完了しました！🐾</h1>
-	<h3>登録した愛犬は一覧画面でご確認ください</h3>
 
-	<br>
-</div>
+	<div class="pet-registerout-container">
+
+		<div class="textbox1">
+			<div class="box-inner">
+				<h1>🐾登録が完了しました！🐾</h1>
+				<h3>登録した愛犬は一覧画面でご確認ください</h3>
+			</div>
+		</div>
+
+		<br>
+	</div>
 </body>
 
 </html>

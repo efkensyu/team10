@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
+
 <head>
-<meta charset="UTF-8">
-<title>犬種詳細</title>
-<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedListDetails.css">
-<link rel="icon" href="../favicon.ico" sizes="64x64">
+	<meta charset="UTF-8">
+	<title>犬種詳細</title>
+	<link rel="stylesheet" type="text/css" href="/team10/Team10CSS/Team10BreedListDetails.css">
+	<link rel="icon" href="../favicon.ico" sizes="64x64">
 </head>
+
 <body>
 
-    <div class="top-buttons-container">
-        <form method="get" th:action="@{/team10/main}">
-            <input type="submit" value="トップへ戻る" />
-        </form> 
-        <form method="post" th:action="@{/team10/breedlist}">
-            <input type="hidden" name="breedlist" value="" />
-            <input type="submit" value="犬種一覧へ戻る" />
-        </form>
-    </div>
-    
-    <div class="detail-page-wrapper">
-        
-        <h1 class="detail-title">🐾 犬種詳細 🐾</h1>
-        
-        <div class="breed-card">
-			<div class="card-image-wrapper">
-			    <img th:if="${breed.breedImage != null}" 
-			         th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" 
-			         class="breed-detail-img" alt="犬種の画像">
-			         
-			    <span th:unless="${breed.breedImage != null}" 
-			          style="color: #b8976c; font-weight: bold; display: block; padding: 40px 0;">
-			          🐾 No Image 🐾
-			    </span>
+	<div class="top-buttons-container">
+		<form method="get" th:action="@{/team10/main}">
+			<input type="submit" value="トップへ戻る" />
+		</form>
+		<form method="post" th:action="@{/team10/breedlist}">
+			<input type="hidden" name="breedlist" value="" />
+			<input type="submit" value="犬種一覧へ戻る" />
+		</form>
+	</div>
+
+	<div class="detail-page-wrapper">
+		<div class="textbox1">
+			<div class="box-inner">
+				<h1 class="detail-title">犬種詳細</h1>
 			</div>
-            
-            <div class="card-content">
-                <div class="info-item">
-                    <span class="info-label">犬種ID</span>
-                    <span class="info-value" th:text="${breed.breedId}"></span>
-                </div>
-                
-                <div class="info-item breed-name-item">
-                    <span class="info-label">犬種名</span>
-                    <span class="info-value name-value" th:text="${breed.breedName}"></span>
-                </div>
-                
-                <div class="info-item">
-                    <span class="info-label">サイズ区分</span>
-                    <span class="info-value" th:text="${breed.sizeId}"></span>
-                </div>
-                
-                <div class="info-item feature-item">
-                    <span class="info-label">特徴・性格</span>
-                    <span class="info-value feature-value" th:text="${breed.feature}"></span>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+		</div>
+		<div class="breed-card">
+			<div class="card-image-wrapper">
+				<img th:if="${breed.breedImage != null}"
+					th:src="@{/team10/breedimages/{filename}(filename=${breed.breedImage})}" class="breed-detail-img"
+					alt="犬種の画像">
+
+				<span th:unless="${breed.breedImage != null}"
+					style="color: #b8976c; font-weight: bold; display: block; padding: 40px 0;">
+					🐾 No Image 🐾
+				</span>
+			</div>
+
+			<div class="card-content">
+				<div class="info-item">
+					<span class="info-label">犬種ID</span>
+					<span class="info-value" th:text="${breed.breedId}"></span>
+				</div>
+
+				<div class="info-item breed-name-item">
+					<span class="info-label">犬種名</span>
+					<span class="info-value name-value" th:text="${breed.breedName}"></span>
+				</div>
+
+				<div class="info-item">
+					<span class="info-label">サイズ区分</span>
+					<span class="info-value" th:text="${breed.sizeId}"></span>
+				</div>
+
+				<div class="info-item feature-item">
+					<span class="info-label">特徴・性格</span>
+					<span class="info-value feature-value" th:text="${breed.feature}"></span>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 </body>
+
 </html>

@@ -10,16 +10,19 @@
 
 <body>
 	<form method="get" th:action="@{/team10/top}">
-			<input type="submit" value="トップへ戻る" />
-		</form>
-	
-	<div class="pet-register-container">
+		<input type="submit" value="トップへ戻る" />
+	</form>
 
-	<h2 class="title">🐾愛犬の情報を登録してね🐾</h2>
-	
+	<div class="pet-register-container">
+		<div class="textbox1">
+			<div class="box-inner">
+				<h2 class="title">愛犬の情報を登録してね</h2>
+		</div>
+	</div>
+
 	<form method="post" th:action="@{/team10/petregister}" th:object="${team10PetRegister}"
 		enctype="multipart/form-data">
-		<input type="hidden" th:field="*{petId}"/>
+		<input type="hidden" th:field="*{petId}" />
 		愛犬のお名前を入力
 		<input type="text" th:field="*{petName}" />
 		<span th:if="${#fields.hasErrors('petName')}" th:errors="*{petName}" style="color:red;"></span>
@@ -37,9 +40,9 @@
 		<br>
 		性別を入力
 		<div class="radio-group">
-		<input type="radio" th:field="*{gender}" value="オス" /> オス
-		<input type="radio" th:field="*{gender}" value="メス" /> メス
-		<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" style="color:red;"></span>
+			<input type="radio" th:field="*{gender}" value="オス" /> オス
+			<input type="radio" th:field="*{gender}" value="メス" /> メス
+			<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" style="color:red;"></span>
 		</div>
 		<br>
 		愛犬の誕生日を入力
@@ -61,7 +64,7 @@
 
 	<br>
 
-</div>	
+	</div>
 </body>
 
 </html>
