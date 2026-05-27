@@ -46,8 +46,10 @@ public class Team10PetEditorController {
     	if ("new".equals(imageOption) && imageFile != null && !imageFile.isEmpty()) {
             String fileName = service.saveImage(imageFile);
             pet.setPetImage(fileName);
+        }else {
+            // 画像を変更しない場合は元の画像をセットする
+            pet.setPetImage(original.getPetImage());
         }
-
         service.saveTeam10PetRegister(pet);
         return "redirect:/team10/petlist";
 
