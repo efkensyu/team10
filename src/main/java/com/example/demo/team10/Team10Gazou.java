@@ -14,7 +14,10 @@ public class Team10Gazou implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/team10/petimages/**")
-                .addResourceLocations("file:" + uploadDir + "/");
+                .addResourceLocations(
+                    "file:" + uploadDir + "/",                   // ① 外部フォルダ（新規アップロード）
+                    "classpath:/static/team10/petimages/"        // ② プロジェクト内（既存画像）
+                );
     }
 }
 
